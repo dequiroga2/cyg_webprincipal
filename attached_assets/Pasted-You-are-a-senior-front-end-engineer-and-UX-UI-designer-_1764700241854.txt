@@ -1,0 +1,91 @@
+You are a senior front-end engineer and UX/UI designer.
+
+Build a **single-page, responsive landing page** for a company called **“C&G CORP”**.  
+C&G CORP is a **VPO (Voice Process Outsourcing) company** that offers **AI phone agents** for enterprise call centers. The goal is to show that our AI agents reduce operating costs while improving customer experience.
+
+### General style & references
+- Visual inspiration: structure and tone similar to **yoummday** (modern outsourcing / BPO site) and the **Konecta** homepage for the hero animation and minimal layout.
+- The page must feel premium, technological and trustworthy.
+- Use a **dark background** with a lot of negative space and strong typography.
+
+### Color palette
+Use only these colors (you may define them as CSS variables):
+- Primary background: `#140d4f`
+- Text: `white`
+- Accent: **rose gold** (use a metallic rose-gold color similar to `#b76e79` for buttons, borders and highlights).
+
+### Layout & sections
+Create a fixed, transparent top navigation bar that becomes solid after scrolling.
+
+Menu items (in this exact order, aligned to the right):
+1. **About Us**
+2. **Solutions**
+3. **Industries**
+4. **Regulations & Compliance**
+5. **News & Insights**
+
+When the user clicks each item, smoothly scroll to the corresponding section.
+
+Sections on the single page:
+1. **Hero section (full viewport height)**
+   - Dark `#140d4f` background.
+   - Centered animated logo concept inspired by Konecta’s intro:
+     - Start with a **large abstract, flowing ribbon shape** (like a curved “wave”) in the center of the screen.
+     - Inside that ribbon, show a masked slideshow or subtle video of **call centers, people with headsets, analytics dashboards, AI visualizations**, etc.
+     - Animate the ribbon so that it **shrinks and moves to the center**, gradually transforming into a clean, static **C&G CORP wordmark** in rose gold (you can build this using SVG, clip-path, or CSS animations – it doesn’t need to be identical to Konecta, just a similar idea of “shape with images that becomes the logo”).
+   - Under the final logo, show the tagline in white, for example:
+     - “AI voice agents that transform your call center.”
+   - Add 1–2 call-to-action buttons:
+     - “Book a demo”
+     - “Talk to our team”
+   - Include a small **scroll indicator** (a mouse icon with a down arrow) centered at the bottom of the hero to invite scrolling.
+
+2. **About Us**
+   - Short paragraph describing C&G CORP as a VPO company with AI call agents that reduce costs and improve efficiency.
+   - 3 small columns/cards with key values (e.g., “Cost Optimization”, “Customer Experience”, “Scalable AI”), with icons or simple illustrations (use placeholders).
+
+3. **Solutions**
+   - A grid of cards describing different AI call solutions (e.g., “Inbound Support Agent”, “Outbound Collections Agent”, “Appointment Scheduling Agent”, “24/7 Virtual Receptionist”).
+   - Each card: icon or image placeholder, title, short description, and a small “Learn more” link.
+   - Use rose-gold accents on hover (borders, shadows or underlines).
+
+4. **Industries**
+   - Section title and short intro line.
+   - A responsive grid of industry tiles: e.g., “Telecom”, “Financial Services”, “Healthcare”, “E-commerce & Retail”, “Utilities”, etc.
+   - Each tile with a subtle hover effect (scale + border in rose gold).
+
+5. **Regulations & Compliance**
+   - Content must be written in **English**.
+   - Explain (with placeholder text) that C&G CORP helps clients comply with key regulations (e.g., data protection, security, quality standards).
+   - Create a 3-column layout with cards titled “Data Protection”, “Security & Reliability”, and “Quality & Monitoring”.
+   - Under each card, use placeholder bullet points such as “GDPR-ready processes”, “Secure infrastructure”, “Call recording & QA tooling”, etc. (real text is not critical; it will be replaced later).
+
+6. **News & Insights**
+   - A simple 3-column blog/news grid with cards that include:
+     - Image placeholder
+     - Title
+     - Short teaser text
+     - “Read more” link
+   - This section should look like a modern blog section.
+
+7. **Footer**
+   - Dark `#140d4f` background.
+   - Include:
+     - C&G CORP logo or text mark.
+     - Placeholder address.
+     - Social media icon placeholders.
+     - Small links: “Privacy Policy”, “Terms of Service”, “Contact”.
+
+### Technical requirements
+- Use **semantic HTML5**, **modern CSS (Flexbox & Grid)**, and vanilla **JavaScript** (no frameworks are strictly required).
+- Organize the project into:
+  - `index.html`
+  - `styles.css`
+  - `script.js`
+- Implement:
+  - Smooth scrolling for nav links.
+  - Sticky navigation that changes background color after scrolling past the hero.
+  - Basic responsive behavior for mobile (hamburger menu or collapsing navigation, stack columns vertically, adjust hero typography).
+- Fill all texts and image URLs with **clear placeholder content** related to AI call agents and BPO; I will replace them manually later.
+
+Please generate all the code needed and ensure it runs directly in the browser inside Replit.
