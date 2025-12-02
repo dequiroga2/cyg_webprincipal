@@ -25,7 +25,7 @@ import {
 
 import heroAbstract from "@assets/generated_images/abstract_flowing_rose_gold_ribbon_on_dark_blue_background.png";
 import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
-import hybridVideo from "@assets/descarga_(2)_1764704240174.mp4";
+import hybridVideo from "@assets/Video_Project_1764704898893.mp4";
 
 // --- Components ---
 
@@ -281,19 +281,6 @@ const ImpactStats = () => {
 const HybridModel = () => {
   return (
     <section id="hybrid" className="py-32 bg-black relative overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-         <video
-           src={hybridVideo}
-           autoPlay
-           loop
-           muted
-           playsInline
-           className="w-full h-full object-cover opacity-50"
-         />
-         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80"></div>
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
@@ -324,18 +311,27 @@ const HybridModel = () => {
             </Button>
           </motion.div>
 
-          {/* Center Graphic - Rings only */}
+          {/* Center Video Graphic */}
           <div className="flex justify-center items-center relative h-[400px]">
+            {/* Outer Glow/Rings */}
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border border-white/10"
+              className="absolute inset-0 rounded-full border border-white/5"
             />
-             <motion.div 
-              animate={{ rotate: -360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-4 rounded-full border border-white/10 border-dashed"
-            />
+            
+            {/* Video Container */}
+            <div className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(183,110,121,0.3)] z-10">
+              <video
+                src={hybridVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-90 scale-125"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 mix-blend-overlay"></div>
+            </div>
           </div>
 
           {/* Human Agent */}
