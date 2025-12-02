@@ -25,6 +25,7 @@ import {
 
 import heroAbstract from "@assets/generated_images/abstract_flowing_rose_gold_ribbon_on_dark_blue_background.png";
 import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
+import hybridVideo from "@assets/descarga_(2)_1764704240174.mp4";
 
 // --- Components ---
 
@@ -279,7 +280,20 @@ const ImpactStats = () => {
 
 const HybridModel = () => {
   return (
-    <section id="hybrid" className="py-32 bg-[#0a0628] relative overflow-hidden">
+    <section id="hybrid" className="py-32 bg-black relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+         <video
+           src={hybridVideo}
+           autoPlay
+           loop
+           muted
+           playsInline
+           className="w-full h-full object-cover opacity-50"
+         />
+         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80"></div>
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
@@ -301,7 +315,7 @@ const HybridModel = () => {
           >
             <h3 className="text-3xl font-bold text-white mb-4">Artificial Agent</h3>
             <p className="text-primary font-bold mb-4 text-sm uppercase tracking-widest">Automation Where It Adds Value</p>
-            <p className="text-white/60 leading-relaxed mb-8">
+            <p className="text-white/80 leading-relaxed mb-8">
               Our artificial agents take care of routine tasks with speed and precision — maximizing efficiency at scale. 
               When interactions become more complex, they seamlessly hand off to human experts.
             </p>
@@ -310,23 +324,17 @@ const HybridModel = () => {
             </Button>
           </motion.div>
 
-          {/* Center Graphic */}
+          {/* Center Graphic - Rings only */}
           <div className="flex justify-center items-center relative h-[400px]">
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border border-white/5"
+              className="absolute inset-0 rounded-full border border-white/10"
             />
              <motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-4 rounded-full border border-white/5 border-dashed"
-            />
-            <img 
-              src={sphereImg} 
-              alt="Core Intelligence" 
-              className="w-64 h-64 object-contain relative z-10 animate-float"
-              style={{ filter: "drop-shadow(0 0 50px rgba(183,110,121,0.3))" }}
+              className="absolute inset-4 rounded-full border border-white/10 border-dashed"
             />
           </div>
 
@@ -339,7 +347,7 @@ const HybridModel = () => {
           >
             <h3 className="text-3xl font-bold text-white mb-4">Human Agent</h3>
             <p className="text-blue-400 font-bold mb-4 text-sm uppercase tracking-widest">Empowered People Deliver Better CX</p>
-            <p className="text-white/60 leading-relaxed mb-8">
+            <p className="text-white/80 leading-relaxed mb-8">
               Our flexible talent model attracts top-performing CX professionals. 
               Equipped with the best AI tools, they handle complex, high-empathy interactions that require a human touch.
             </p>
