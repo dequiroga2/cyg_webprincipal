@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Phone, 
@@ -19,13 +19,12 @@ import {
   Zap,
   Activity,
   Layers,
-  Server
+  Server,
+  ArrowRight
 } from "lucide-react";
 
 import heroAbstract from "@assets/generated_images/abstract_flowing_rose_gold_ribbon_on_dark_blue_background.png";
-import callCenterImg from "@assets/generated_images/modern_call_center_with_ai_visualization.png";
-import teamImg from "@assets/generated_images/professional_diverse_corporate_team.png";
-import dataFlowImg from "@assets/generated_images/futuristic_abstract_data_flow_with_neon_rose_gold_and_cyan_lines.png";
+import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
 
 // --- Components ---
 
@@ -44,7 +43,7 @@ const GlowingCursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full bg-primary/30 blur-xl pointer-events-none z-50 hidden md:block"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full bg-primary/50 blur-xl pointer-events-none z-50 hidden md:block mix-blend-screen"
       style={{ x: cursorX, y: cursorY }}
     />
   );
@@ -63,11 +62,10 @@ const Nav = () => {
   }, []);
 
   const navLinks = [
-    { name: "About Us", href: "#about" },
+    { name: "Hybrid Model", href: "#hybrid" },
+    { name: "Impact", href: "#impact" },
+    { name: "Value", href: "#value" },
     { name: "Solutions", href: "#solutions" },
-    { name: "Industries", href: "#industries" },
-    { name: "Regulations", href: "#regulations" },
-    { name: "News", href: "#news" },
   ];
 
   return (
@@ -97,7 +95,7 @@ const Nav = () => {
           ))}
           <Button 
             variant="outline" 
-            className="relative overflow-hidden border-primary/50 text-white bg-transparent hover:bg-primary/10 hover:text-primary hover:border-primary transition-all duration-300 group"
+            className="relative overflow-hidden border-primary/50 text-white bg-transparent hover:bg-primary/10 hover:text-primary hover:border-primary transition-all duration-300 group rounded-full px-6"
           >
             <span className="relative z-10">Contact Us</span>
             <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -140,7 +138,6 @@ const Nav = () => {
 const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   
   return (
@@ -151,14 +148,6 @@ const Hero = () => {
           src={heroAbstract} 
           alt="Abstract Ribbon" 
           className="w-full h-full object-cover mix-blend-screen opacity-60 scale-110"
-        />
-      </motion.div>
-      
-      <motion.div style={{ y: y2, opacity }} className="absolute inset-0 z-0">
-         <img 
-          src={dataFlowImg} 
-          alt="Data Flow" 
-          className="w-full h-full object-cover mix-blend-overlay opacity-40"
         />
       </motion.div>
 
@@ -200,10 +189,6 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
           </Button>
-          
-          <Button size="lg" variant="ghost" className="text-white hover:text-primary hover:bg-white/5 px-8 py-7 rounded-full text-lg transition-all">
-            Talk to our Team
-          </Button>
         </motion.div>
       </div>
 
@@ -225,118 +210,233 @@ const Hero = () => {
   );
 };
 
-const HolographicCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [5, -5]);
-  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
+const Counter = ({ from, to, suffix = "" }: { from: number, to: number, suffix?: string }) => {
+  const nodeRef = useRef<HTMLSpanElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (rect) {
-      x.set(e.clientX - rect.left - rect.width / 2);
-      y.set(e.clientY - rect.top - rect.height / 2);
-    }
-  };
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
 
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+    const controls = animate(from, to, {
+      duration: 2.5,
+      onUpdate(value) {
+        node.textContent = Math.floor(value).toLocaleString() + suffix;
+      },
+    });
 
+    return () => controls.stop();
+  }, [from, to, suffix]);
+
+  return <span ref={nodeRef} />;
+};
+
+const ImpactStats = () => {
   return (
-    <motion.div
-      ref={cardRef}
-      style={{ rotateX, rotateY, perspective: 1000 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`relative transition-all duration-200 ease-out ${className}`}
-    >
-      {children}
-    </motion.div>
+    <section id="impact" className="py-0">
+      <div className="grid grid-cols-1 md:grid-cols-4 min-h-[400px]">
+        <div className="bg-[#2a1b85] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
+            <Globe size={120} />
+          </div>
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+            +<Counter from={0} to={120} suffix="k" />
+          </h3>
+          <p className="text-xl text-blue-200 font-medium relative z-10">Interactions Daily</p>
+        </div>
+
+        <div className="bg-[#140d4f] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
+            <Globe size={120} />
+          </div>
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+            <Counter from={0} to={26} />
+          </h3>
+          <p className="text-xl text-blue-200 font-medium relative z-10">Countries Served</p>
+        </div>
+
+        <div className="bg-[#2a1b85] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
+            <Mic size={120} />
+          </div>
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+            +<Counter from={0} to={30} />
+          </h3>
+          <p className="text-xl text-blue-200 font-medium relative z-10">Languages Supported</p>
+        </div>
+
+        <div className="bg-white flex flex-col justify-center items-start p-12 relative">
+          <h3 className="text-5xl font-heading font-bold text-[#140d4f] mb-6 leading-tight">
+            Not convinced yet?
+          </h3>
+          <a href="#" className="group flex items-center gap-2 text-[#140d4f] font-bold text-lg hover:gap-4 transition-all">
+            Meet the Team <ArrowRight className="group-hover:text-primary transition-colors" />
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
-const About = () => {
+const HybridModel = () => {
   return (
-    <section id="about" className="py-32 bg-background relative overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
-
+    <section id="hybrid" className="py-32 bg-[#0a0628] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-20 items-center">
-          <motion.div
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            From Human Experts to <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Full Automation</span>
+          </h2>
+          <p className="text-white/60 text-xl max-w-2xl mx-auto">
+            Flexibly choose the setup you need to elevate your Customer Experience.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 items-center">
+          {/* Artificial Agent */}
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <span className="h-[1px] w-10 bg-primary"></span>
-              <span className="text-primary uppercase tracking-widest text-xs font-bold">The Future of VPO</span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Human Expertise.<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">AI Efficiency.</span>
-            </h2>
-            <p className="text-lg text-blue-100/60 mb-10 leading-relaxed font-light">
-              C&G CORP isn't just outsourcing; it's <span className="text-white">upgrading</span>. We combine empathy with algorithmic precision to create customer experiences that feel like magic.
+            <h3 className="text-3xl font-bold text-white mb-4">Artificial Agent</h3>
+            <p className="text-primary font-bold mb-4 text-sm uppercase tracking-widest">Automation Where It Adds Value</p>
+            <p className="text-white/60 leading-relaxed mb-8">
+              Our artificial agents take care of routine tasks with speed and precision — maximizing efficiency at scale. 
+              When interactions become more complex, they seamlessly hand off to human experts.
             </p>
-            
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                { icon: <BarChart3 className="text-primary" />, title: "Cost Optimization", desc: "Slash operational overhead by 60%" },
-                { icon: <Cpu className="text-primary" />, title: "Neural Processing", desc: "Real-time sentiment adaptation" },
-                { icon: <Activity className="text-primary" />, title: "Infinite Scaling", desc: "Zero-latency capacity expansion" }
-              ].map((item, i) => (
-                <HolographicCard key={i}>
-                  <div className="flex items-center gap-6 p-6 rounded-xl glass-panel hover:bg-white/5 transition-colors group">
-                    <div className="p-4 rounded-lg bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:from-primary/40 group-hover:to-purple-500/40 transition-all shadow-[0_0_15px_rgba(183,110,121,0.2)]">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-white text-lg mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-                      <p className="text-sm text-white/50">{item.desc}</p>
-                    </div>
-                  </div>
-                </HolographicCard>
-              ))}
-            </div>
+            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg group">
+              Get Artificial Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+          {/* Center Graphic */}
+          <div className="flex justify-center items-center relative h-[400px]">
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full border border-white/5"
+            />
+             <motion.div 
+              animate={{ rotate: -360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-4 rounded-full border border-white/5 border-dashed"
+            />
+            <img 
+              src={sphereImg} 
+              alt="Core Intelligence" 
+              className="w-64 h-64 object-contain relative z-10 animate-float"
+              style={{ filter: "drop-shadow(0 0 50px rgba(183,110,121,0.3))" }}
+            />
+          </div>
+
+          {/* Human Agent */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative group"
+            className="text-left md:text-right flex flex-col items-start md:items-end"
           >
-            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-              <img src={callCenterImg} alt="AI Call Center" className="w-full h-auto scale-105 group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#140d4f] via-transparent to-transparent opacity-80"></div>
-              
-              {/* Floating HUD Elements */}
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="flex items-center justify-between text-xs font-mono text-primary/80 mb-2">
-                  <span>SYSTEM_STATUS</span>
-                  <span>ONLINE</span>
-                </div>
-                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                  <motion.div 
-                    className="h-full bg-primary"
-                    animate={{ width: ["30%", "60%", "45%", "80%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+            <h3 className="text-3xl font-bold text-white mb-4">Human Agent</h3>
+            <p className="text-blue-400 font-bold mb-4 text-sm uppercase tracking-widest">Empowered People Deliver Better CX</p>
+            <p className="text-white/60 leading-relaxed mb-8">
+              Our flexible talent model attracts top-performing CX professionals. 
+              Equipped with the best AI tools, they handle complex, high-empathy interactions that require a human touch.
+            </p>
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg group">
+              Book Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ValueGraph = () => {
+  return (
+    <section id="value" className="py-32 bg-[#f0f0f5] text-[#140d4f] relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            More Value, <span className="text-primary">Lower Cost</span>
+          </h2>
+          <p className="text-xl text-gray-600">That's our standard.</p>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center items-end gap-16 h-[500px] max-w-5xl mx-auto">
+          
+          {/* Value Graph */}
+          <div className="flex-1 h-full flex flex-col justify-end items-center gap-4">
+            <h3 className="text-2xl font-bold mb-8">Value</h3>
+            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4">Customer Satisfaction</p>
+            
+            <div className="flex items-end gap-8 h-[300px] w-full justify-center border-b border-gray-300 pb-2">
+              <div className="flex flex-col items-center gap-2 w-24">
+                <motion.div 
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "120px" }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                  className="w-full bg-orange-200 rounded-t-2xl opacity-80"
+                />
+                <span className="text-sm font-bold text-gray-500">Conventional</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 w-24 relative">
+                <div className="absolute -top-12 font-bold text-3xl text-[#140d4f]">+15%</div>
+                <motion.div 
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "240px" }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                  className="w-full bg-[#ff6b4a] rounded-t-2xl shadow-xl"
+                />
+                <span className="text-sm font-bold text-[#140d4f]">C&G CORP</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Logo Divider */}
+          <div className="hidden md:flex items-center justify-center h-full pb-20">
+            <div className="text-3xl font-bold text-gray-300 transform -rotate-90 tracking-widest">VS</div>
+          </div>
+
+          {/* Costs Graph */}
+          <div className="flex-1 h-full flex flex-col justify-end items-center gap-4">
+            <h3 className="text-2xl font-bold mb-8">Total Costs</h3>
+            <div className="flex items-end gap-8 h-[300px] w-full justify-center border-b border-gray-300 pb-2">
+              <div className="flex flex-col items-center gap-2 w-24 relative">
+                <div className="absolute -top-12 font-bold text-3xl text-[#140d4f]">-20%</div>
+                <motion.div 
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "180px" }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="w-full bg-[#4d3df7] rounded-t-2xl shadow-xl flex flex-col justify-end overflow-hidden"
+                >
+                  <div className="h-1/3 bg-[#2a1b85] w-full"></div>
+                </motion.div>
+                <span className="text-sm font-bold text-[#140d4f]">C&G CORP</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 w-24">
+                <motion.div 
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "280px" }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="w-full bg-[#4d3df7] rounded-t-2xl opacity-40 flex flex-col justify-end overflow-hidden"
+                >
+                   <div className="h-1/3 bg-[#2a1b85] w-full opacity-50"></div>
+                </motion.div>
+                <span className="text-sm font-bold text-gray-500">Conventional</span>
               </div>
             </div>
             
-            {/* Decorative Glows */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-[100px] z-0 animate-pulse"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-cyan-500/20 rounded-full blur-[100px] z-0"></div>
-          </motion.div>
+            {/* Legend */}
+            <div className="flex gap-4 mt-4 text-xs font-medium text-gray-500">
+               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-[#4d3df7]"></div> Operational Costs</div>
+               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-[#2a1b85]"></div> Agent Compensation</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -408,133 +508,6 @@ const Solutions = () => {
   );
 };
 
-const Industries = () => {
-  const industries = [
-    "Telecom", "FinTech", "HealthTech", "E-Commerce", "Energy", "SaaS"
-  ];
-
-  return (
-    <section id="industries" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute -left-20 top-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]"></div>
-
-      <div className="container mx-auto px-6 relative">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Powered by <span className="text-primary">C&G</span></h2>
-        
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-          {industries.map((ind, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="cursor-pointer"
-            >
-              <div className="px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(183,110,121,0.3)] transition-all duration-300">
-                <span className="text-lg md:text-xl font-medium text-white/80">{ind}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Regulations = () => {
-  return (
-    <section id="regulations" className="py-32 bg-[#0f093e] relative border-y border-white/5">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-mono mb-6 border border-green-500/20">
-              <ShieldCheck size={12} /> SECURE ENVIRONMENT
-            </div>
-            <h2 className="text-4xl font-bold mb-6">Military-Grade <span className="text-white">Compliance</span></h2>
-            <p className="text-white/60 mb-8 leading-relaxed">
-              We operate within a fortress of digital security. Every interaction is encrypted, monitored, and compliant with global standards.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {["GDPR", "ISO 27001", "HIPAA", "PCI DSS"].map(tag => (
-                <Badge key={tag} variant="outline" className="border-white/10 bg-white/5 text-white/80 py-1 px-3 font-mono">{tag}</Badge>
-              ))}
-            </div>
-          </div>
-          
-          <div className="lg:w-2/3 grid md:grid-cols-3 gap-6">
-            {[
-              { title: "Data Vault", icon: <Server className="text-cyan-400"/>, items: ["AES-256 Encryption", "Sovereignty Controls"] },
-              { title: "Network Shield", icon: <Zap className="text-yellow-400"/>, items: ["Active DDoS Mitigation", "Zero-Trust Architecture"] },
-              { title: "Quality Matrix", icon: <Activity className="text-primary"/>, items: ["Real-time Sentiment", "Auto-Redaction"] }
-            ].map((card, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity duration-500">
-                   {/* Tiny decorative corner */}
-                   <div className="w-2 h-2 bg-white/20"></div>
-                </div>
-                
-                <div className="mb-4 p-3 rounded-lg bg-black/20 w-fit backdrop-blur-md border border-white/5">{card.icon}</div>
-                <h3 className="font-bold text-lg mb-4 text-white group-hover:translate-x-1 transition-transform">{card.title}</h3>
-                <ul className="space-y-3">
-                  {card.items.map((item, j) => (
-                    <li key={j} className="text-xs font-mono text-white/50 flex items-center gap-2">
-                      <span className="text-primary/50">///</span> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const News = () => {
-  return (
-    <section id="news" className="py-32 bg-background relative">
-      <div className="container mx-auto px-6">
-        <div className="flex justify-between items-end mb-16">
-          <div>
-            <h2 className="text-4xl font-bold mb-2">Signal & <span className="text-primary">Noise</span></h2>
-            <p className="text-white/50">Broadcasts from the edge of innovation.</p>
-          </div>
-          <Button variant="link" className="hidden md:flex text-primary hover:text-white gap-2">
-            View Transmission Archive <ChevronRight size={14} />
-          </Button>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Voice AI Singularity: 2025 Outlook", date: "TRANS: 10.12.25", color: "bg-cyan-500" },
-            { title: "Case File: 80% Latency Reduction in FinTech", date: "TRANS: 09.28.25", color: "bg-primary" },
-            { title: "The Ethics of Synthetic Empathy", date: "TRANS: 09.15.25", color: "bg-purple-500" }
-          ].map((news, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -10 }}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-[4/3] bg-black/40 rounded-xl mb-6 overflow-hidden border border-white/10 relative">
-                <div className={`absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity ${news.color} mix-blend-screen`}></div>
-                <img src={dataFlowImg} className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110" />
-                
-                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-white border border-white/10">
-                  {news.date}
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">{news.title}</h3>
-              <div className="h-[1px] w-full bg-white/10 group-hover:bg-primary/50 transition-colors mt-4"></div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   return (
     <footer className="bg-[#050314] py-20 border-t border-white/10 relative overflow-hidden">
@@ -559,9 +532,8 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-6 text-white">Coordinates</h4>
             <ul className="space-y-3 text-sm text-white/50 hover:text-white transition-colors">
-              <li><a href="#about" className="hover:text-primary transition-colors">Mission</a></li>
+              <li><a href="#hybrid" className="hover:text-primary transition-colors">Mission</a></li>
               <li><a href="#solutions" className="hover:text-primary transition-colors">Modules</a></li>
-              <li><a href="#news" className="hover:text-primary transition-colors">Intel</a></li>
             </ul>
           </div>
           
@@ -570,7 +542,6 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-white/50">
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Encryption</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Terms of Engagement</a></li>
-              <li><a href="#regulations" className="hover:text-primary transition-colors">Compliance Check</a></li>
             </ul>
           </div>
           
@@ -602,11 +573,10 @@ export default function Home() {
       <GlowingCursor />
       <Nav />
       <Hero />
-      <About />
+      <ImpactStats />
+      <HybridModel />
+      <ValueGraph />
       <Solutions />
-      <Industries />
-      <Regulations />
-      <News />
       <Footer />
     </div>
   );
