@@ -39,42 +39,32 @@ html {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
 }
 
 /* Base Dark Theme (Default) */
 :root {
-  /* Primary Background: #140d4f -> 246 72% 18% */
-  /* Text: white -> 0 0% 100% */
-  /* Accent: #b76e79 -> 351 33% 57% */
-
   --background: 246 72% 18%;
   --foreground: 0 0% 100%;
-
-  --card: 246 65% 22%; /* Slightly lighter than bg */
+  --card: 246 65% 22%;
   --card-foreground: 0 0% 100%;
-
   --popover: 246 72% 18%;
   --popover-foreground: 0 0% 100%;
-
-  --primary: 351 33% 57%; /* Rose Gold */
+  --primary: 351 33% 57%;
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 246 60% 30%; /* Lighter Blue */
+  --secondary: 246 60% 30%;
   --secondary-foreground: 0 0% 100%;
-
   --muted: 246 40% 35%;
   --muted-foreground: 246 20% 80%;
-
   --accent: 351 33% 57%;
   --accent-foreground: 0 0% 100%;
-
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-
   --border: 246 40% 30%;
   --input: 246 40% 30%;
   --ring: 351 33% 57%;
-
   --radius: 0.5rem;
 }
 
@@ -83,9 +73,46 @@ html {
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(183, 110, 121, 0.15), transparent 50%),
+      radial-gradient(circle at 0% 50%, rgba(20, 13, 79, 0.8), transparent 50%);
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; filter: blur(10px); }
+  50% { opacity: 1; filter: blur(15px); }
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-border {
+  position: relative;
+}
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(45deg, transparent, var(--color-primary), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
