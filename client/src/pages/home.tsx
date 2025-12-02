@@ -21,6 +21,7 @@ import {
 import heroAbstract from "@assets/generated_images/abstract_flowing_rose_gold_ribbon_on_dark_blue_background.png";
 import callCenterImg from "@assets/generated_images/modern_call_center_with_ai_visualization.png";
 import teamImg from "@assets/generated_images/professional_diverse_corporate_team.png";
+import logoImg from "@assets/Logo_CG_Corp_1764700695799.jpg";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,12 +46,16 @@ const Nav = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#140d4f]/95 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-6"
+        isScrolled ? "bg-[#140d4f]/95 backdrop-blur-md shadow-lg py-2" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-heading font-bold tracking-wider text-white">
-          C&G <span className="text-primary">CORP</span>
+        <a href="#" className="block">
+          <img 
+            src={logoImg} 
+            alt="C&G CORP" 
+            className={`w-auto transition-all duration-300 mix-blend-screen ${isScrolled ? "h-12" : "h-16"}`}
+          />
         </a>
 
         {/* Desktop Menu */}
@@ -103,37 +108,44 @@ const Nav = () => {
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const ribbonScale = useTransform(scrollY, [0, 300], [1, 0.5]);
-  const ribbonOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const textOpacity = useTransform(scrollY, [0, 100], [0, 1]); // Initial fade in handled by variants
+  const logoScale = useTransform(scrollY, [0, 300], [1, 0.8]);
+  const logoOpacity = useTransform(scrollY, [0, 300], [1, 0.5]);
   
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-      {/* Animated Ribbon Background Element */}
+      {/* Animated Background Element */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#140d4f] via-[#1a1160] to-[#140d4f]"></div>
+      
+      {/* Abstract flow in background, subtle */}
       <motion.div 
-        className="absolute inset-0 z-0 flex items-center justify-center opacity-60"
-        initial={{ scale: 1.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 z-0 flex items-center justify-center opacity-30"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 2 }}
       >
-         {/* We use the generated abstract image as the 'ribbon' element */}
          <img 
           src={heroAbstract} 
           alt="Abstract Flow" 
-          className="w-full h-full object-cover mix-blend-screen opacity-80"
+          className="w-full h-full object-cover mix-blend-screen blur-sm"
         />
       </motion.div>
 
-      <div className="z-10 text-center px-4 max-w-4xl mx-auto mt-20">
+      <div className="z-10 text-center px-4 max-w-4xl mx-auto mt-10 flex flex-col items-center">
         <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="mb-6"
+          initial={{ scale: 0.8, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 1.2, type: "spring" }}
+          style={{ scale: logoScale, opacity: logoOpacity }}
+          className="mb-10 relative"
         >
-          <h1 className="text-6xl md:text-8xl font-heading font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-primary/50">
-            C&G <span className="text-primary">CORP</span>
-          </h1>
+          {/* Glowing effect behind logo */}
+          <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full transform scale-150 z-0"></div>
+          
+          <img 
+            src={logoImg} 
+            alt="C&G CORP Logo" 
+            className="w-full max-w-[500px] h-auto mix-blend-screen relative z-10 drop-shadow-[0_0_15px_rgba(183,110,121,0.3)]"
+          />
         </motion.div>
 
         <motion.p 
