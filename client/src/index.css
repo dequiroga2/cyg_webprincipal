@@ -4,6 +4,17 @@ html {
 
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+/* ... aquí suelen estar las directivas de tailwind (@tailwind base; etc) ... */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Definir manualmente la clase font-heading */
+.font-heading {
+  font-family: 'Cinzel', serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
