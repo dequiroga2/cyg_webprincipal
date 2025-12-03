@@ -413,57 +413,66 @@ const HybridModel = () => {
 
 const ValueGraph = () => {
   return (
-    <section id="value" className="py-32 bg-[#f0f0f5] text-[#140d4f] relative overflow-hidden">
+    <section id="value" className="py-20 md:py-32 bg-[#f0f0f5] text-[#140d4f] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
             More Value, <span className="text-primary">Lower Cost</span>
           </h2>
-          <p className="text-xl text-gray-600">That's our standard.</p>
+          <p className="text-lg md:text-xl text-gray-600">That's our standard.</p>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-end gap-16 h-[500px] max-w-5xl mx-auto">
+        {/* CAMBIO CLAVE 1: 
+           - 'h-auto': En móvil la altura se adapta al contenido (las gráficas apiladas).
+           - 'md:h-[500px]': En escritorio volvemos a la altura fija para alinear abajo.
+           - 'items-center': En móvil centramos todo.
+           - 'md:items-end': En escritorio alineamos al fondo.
+        */}
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-12 md:gap-16 h-auto md:h-[500px] max-w-5xl mx-auto">
           
-          {/* Value Graph */}
-          <div className="flex-1 h-full flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-8">Value</h3>
-            <p className="text-primary font-medium text-sm uppercase tracking-widest mb-4">Customer Satisfaction</p>
+          {/* --- Value Graph --- */}
+          <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
+            <h3 className="text-2xl font-bold mb-4 md:mb-8">Value</h3>
+            <p className="text-primary font-medium text-xs md:text-sm uppercase tracking-widest mb-4">Customer Satisfaction</p>
             
-            <div className="flex items-end gap-8 h-[300px] w-full justify-center border-b border-gray-300 pb-2">
-              <div className="flex flex-col items-center gap-2 w-24">
+            <div className="flex items-end gap-4 md:gap-8 h-[250px] md:h-[300px] w-full justify-center border-b border-gray-300 pb-2">
+              <div className="flex flex-col items-center gap-2 w-20 md:w-24">
                 <motion.div 
                   initial={{ height: 0 }}
                   whileInView={{ height: "120px" }}
                   transition={{ duration: 1, delay: 0.2 }}
                   className="w-full bg-orange-200 rounded-t-2xl opacity-80"
                 />
-                <span className="text-sm font-bold text-gray-500">Conventional</span>
+                <span className="text-xs md:text-sm font-bold text-gray-500">Conventional</span>
               </div>
 
-              <div className="flex flex-col items-center gap-2 w-24 relative">
-                <div className="absolute -top-12 font-bold text-3xl text-[#140d4f]">+15%</div>
+              <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
+                <div className="absolute -top-10 md:-top-12 font-bold text-2xl md:text-3xl text-[#140d4f]">+15%</div>
                 <motion.div 
                   initial={{ height: 0 }}
                   whileInView={{ height: "240px" }}
                   transition={{ duration: 1, delay: 0.4 }}
                   className="w-full bg-[#ff6b4a] rounded-t-2xl shadow-xl"
                 />
-                <span className="text-sm font-bold text-[#140d4f]">C&G CORP</span>
+                <span className="text-xs md:text-sm font-bold text-[#140d4f]">C&G CORP</span>
               </div>
             </div>
           </div>
 
-          {/* Logo Divider */}
+          {/* Logo Divider (Escritorio) / Line Divider (Móvil) */}
           <div className="hidden md:flex items-center justify-center h-full pb-20">
             <div className="text-3xl font-bold text-gray-300 transform -rotate-90 tracking-widest">VS</div>
           </div>
+          {/* Divisor solo para móvil para separar las graficas */}
+          <div className="md:hidden w-1/2 h-[2px] bg-gray-200 my-4"></div>
 
-          {/* Costs Graph */}
-          <div className="flex-1 h-full flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-8">Total Costs</h3>
-            <div className="flex items-end gap-8 h-[300px] w-full justify-center border-b border-gray-300 pb-2">
-              <div className="flex flex-col items-center gap-2 w-24 relative">
-                <div className="absolute -top-12 font-bold text-3xl text-[#140d4f]">-20%</div>
+          {/* --- Costs Graph --- */}
+          <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
+            <h3 className="text-2xl font-bold mb-4 md:mb-8">Total Costs</h3>
+            
+            <div className="flex items-end gap-4 md:gap-8 h-[250px] md:h-[300px] w-full justify-center border-b border-gray-300 pb-2">
+              <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
+                <div className="absolute -top-10 md:-top-12 font-bold text-2xl md:text-3xl text-[#140d4f]">-20%</div>
                 <motion.div 
                   initial={{ height: 0 }}
                   whileInView={{ height: "180px" }}
@@ -472,10 +481,10 @@ const ValueGraph = () => {
                 >
                   <div className="h-1/3 bg-[#2a1b85] w-full"></div>
                 </motion.div>
-                <span className="text-sm font-bold text-[#140d4f]">C&G CORP</span>
+                <span className="text-xs md:text-sm font-bold text-[#140d4f]">C&G CORP</span>
               </div>
 
-              <div className="flex flex-col items-center gap-2 w-24">
+              <div className="flex flex-col items-center gap-2 w-20 md:w-24">
                 <motion.div 
                   initial={{ height: 0 }}
                   whileInView={{ height: "280px" }}
@@ -484,14 +493,13 @@ const ValueGraph = () => {
                 >
                    <div className="h-1/3 bg-[#2a1b85] w-full opacity-50"></div>
                 </motion.div>
-                <span className="text-sm font-bold text-gray-500">Conventional</span>
+                <span className="text-xs md:text-sm font-bold text-gray-500">Conventional</span>
               </div>
             </div>
             
-            {/* Legend */}
-            <div className="flex gap-4 mt-4 text-xs font-medium text-gray-500">
-               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-[#4d3df7]"></div> Operational Costs</div>
-               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-[#2a1b85]"></div> Agent Compensation</div>
+            <div className="flex gap-4 mt-4 text-[10px] md:text-xs font-medium text-gray-500">
+               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-[#4d3df7]"></div> Operational Costs</div>
+               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-[#2a1b85]"></div> Agent Compensation</div>
             </div>
           </div>
 
