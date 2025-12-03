@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, animate, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,9 +23,10 @@ import {
   ArrowRight
 } from "lucide-react";
 
-import heroAbstract from "@assets/generated_images/abstract_flowing_rose_gold_ribbon_on_dark_blue_background.png";
+import heroAbstract from "@assets/generated_images/logo_final.png";
 import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
 import hybridVideo from "@assets/Video_Project_1764704898893.mp4";
+import logoIntroVideo from "@assets/generated_images/logo.mp4";
 
 // --- Components ---
 
@@ -140,73 +141,124 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  const [introFinished, setIntroFinished] = useState(false);
+
+  useEffect(() => {
+    // El video dura 6 segundos. Al terminar, cambiamos el estado.
+    const timer = setTimeout(() => {
+      setIntroFinished(true);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // --- NUEVO: Definimos la transición suave del efecto ---
+  const finalImageVariants: Variants = {
+    // Estado inicial: justo cuando aparece la imagen, se ve igual al video
+    hidden: { 
+      opacity: 1, 
+      mixBlendMode: "normal" // Sin efecto de fusión todavía
+    },
+    // Estado final: hacia donde transiciona suavemente
+    visible: { 
+      opacity: 0.6, // Tu opacity-60 original
+      mixBlendMode: "screen", // Tu mix-blend-screen original
+      transition: { 
+        duration: 2, // Duración de 2 segundos para que sea muy suave
+        ease: "easeInOut" 
+      }
+    }
+  };
+  // ---------------------------------------------------------
   
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden perspective-1000">
-      {/* Parallax Background Layers */}
+      
+      {/* Capa de Fondo */}
       <motion.div style={{ y: y1, opacity }} className="absolute inset-0 z-0">
-         <img 
-          src={heroAbstract} 
-          alt="Abstract Ribbon" 
-          className="w-full h-full object-cover mix-blend-screen opacity-60 scale-110"
-        />
+         {!introFinished ? (
+           // 1. VIDEO (Primeros 6 segundos)
+           // IMPORTANTE: Asegúrate de haber importado 'logoIntroVideo' arriba
+           <video 
+             src={logoIntroVideo} 
+             autoPlay 
+             muted 
+             playsInline 
+             // Nota: Quitamos 'mix-blend-screen' y 'opacity' del video para que se vea crudo
+             className="w-full h-full object-cover scale-110"
+           />
+         ) : (
+           // 2. IMAGEN FINAL (Después de 6 segundos)
+           // Usamos motion.img para animar la entrada del efecto
+           <motion.img 
+             src={heroAbstract} 
+             alt="Abstract Ribbon"
+             // Quitamos las clases de tailwind que causaban el salto (opacity-60 mix-blend-screen)
+             // Dejamos las que definen posición y tamaño.
+             className="w-full h-full object-cover scale-110"
+             // Aplicamos las variantes que definimos arriba
+             variants={finalImageVariants}
+             initial="hidden"
+             animate="visible"
+           />
+         )}
       </motion.div>
 
-      {/* Content */}
-      <div className="z-10 text-center px-4 max-w-5xl mx-auto mt-20 relative">
-        {/* Floating Particles */}
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/30 rounded-full blur-[80px] animate-pulse" />
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/30 rounded-full blur-[80px] animate-pulse delay-1000" />
+      {/* Contenido (Texto y Botones) - Aparecen cuando el video termina */}
+      {introFinished && (
+        <div className="z-10 text-center px-4 max-w-5xl mx-auto mt-20 relative">
+          
+          <motion.div 
+             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}
+             className="absolute -top-20 -left-20 w-40 h-40 bg-primary/30 rounded-full blur-[80px] animate-pulse" 
+          />
+          <motion.div 
+             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.5 }}
+             className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/30 rounded-full blur-[80px] animate-pulse delay-1000" 
+          />
 
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0, rotateX: 20 }}
-          animate={{ scale: 1, opacity: 1, rotateX: 0 }}
-          transition={{ delay: 0.2, duration: 1.2, type: "spring" }}
-          className="mb-8 relative"
-        >
-          <h1 className="text-7xl md:text-9xl font-heading font-bold tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-            C&G <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">CORP</span>
-          </h1>
-          <div className="absolute -inset-10 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 blur-xl rounded-full opacity-50 animate-pulse" />
-        </motion.div>
+          {/* Aumenté un poco los delays y durations para que acompañen la transición suave del fondo */}
+          <motion.p 
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }} 
+            className="text-xl md:text-2xl text-blue-100/80 font-light max-w-2xl mx-auto mb-12 backdrop-blur-sm py-2 rounded-lg"
+          >
+            AI voice agents that <span className="text-white font-medium">transform</span> your call center.
+          </motion.p>
 
-        <motion.p 
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-xl md:text-2xl text-blue-100/80 font-light max-w-2xl mx-auto mb-12 backdrop-blur-sm py-2 rounded-lg"
-        >
-          AI voice agents that <span className="text-white font-medium">transform</span> your call center.
-        </motion.p>
+          <motion.div 
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            <Button size="lg" className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-white px-8 py-3 rounded-full text-base">
+              <span className="relative z-10 flex items-center gap-2">Book a Demo <Zap size={18} className="group-hover:text-yellow-300 transition-colors"/></span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+            </Button>
+          </motion.div>
+        </div>
+      )}
 
+      {/* Indicador de Scroll */}
+      {introFinished && (
         <motion.div 
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/40"
         >
-          <Button size="lg" className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-white px-10 py-7 rounded-full text-lg">
-            <span className="relative z-10 flex items-center gap-2">Book a Demo <Zap size={18} className="group-hover:text-yellow-300 transition-colors"/></span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
-          </Button>
+          <span className="text-[10px] uppercase tracking-[0.3em]">Scroll to Explore</span>
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <Mouse size={20} />
+          </motion.div>
         </motion.div>
-      </div>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/40"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll to Explore</span>
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <Mouse size={20} />
-        </motion.div>
-      </motion.div>
+      )}
     </section>
   );
 };
