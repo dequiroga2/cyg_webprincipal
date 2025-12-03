@@ -293,7 +293,7 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Globe size={120} />
           </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
             +<Counter from={0} to={120} suffix="k" />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Interactions Daily</p>
@@ -303,7 +303,7 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Globe size={120} />
           </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
             <Counter from={0} to={26} />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Countries Served</p>
@@ -313,14 +313,14 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Mic size={120} />
           </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
             +<Counter from={0} to={30} />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Languages Supported</p>
         </div>
 
         <div className="bg-white flex flex-col justify-center items-start p-12 relative">
-          <h3 className="text-5xl font-heading font-bold text-[#140d4f] mb-6 leading-tight">
+          <h3 className="text-5xl font-sans font-bold text-[#140d4f] mb-6 leading-tight">
             Not convinced yet?
           </h3>
           <a href="#" className="group flex items-center gap-2 text-[#140d4f] font-bold text-lg hover:gap-4 transition-all">
