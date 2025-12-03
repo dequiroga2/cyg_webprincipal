@@ -38,7 +38,7 @@ const Nav = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl font-heading font-bold tracking-wider text-white relative group cursor-pointer">
+          <a className="text-2xl font-cinzel font-bold tracking-wider text-white relative group cursor-pointer">
             C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
           </a>

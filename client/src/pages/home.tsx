@@ -81,7 +81,7 @@ const Nav = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl font-heading font-bold tracking-wider text-white relative group cursor-pointer">
+          <a className="text-2xl font-cinzel font-bold tracking-wider text-white relative group cursor-pointer">
             C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
           </a>
@@ -293,7 +293,7 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Globe size={120} />
           </div>
-          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
             +<Counter from={0} to={120} suffix="k" />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Interactions Daily</p>
@@ -303,7 +303,7 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Globe size={120} />
           </div>
-          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
             <Counter from={0} to={26} />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Countries Served</p>
@@ -313,14 +313,14 @@ const ImpactStats = () => {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
             <Mic size={120} />
           </div>
-          <h3 className="text-6xl font-sans font-bold text-white mb-2 relative z-10">
+          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
             +<Counter from={0} to={30} />
           </h3>
           <p className="text-xl text-blue-200 font-medium relative z-10">Languages Supported</p>
         </div>
 
         <div className="bg-white flex flex-col justify-center items-start p-12 relative">
-          <h3 className="text-5xl font-sans font-bold text-[#140d4f] mb-6 leading-tight">
+          <h3 className="text-5xl font-heading font-bold text-[#140d4f] mb-6 leading-tight">
             Not convinced yet?
           </h3>
           <a href="#" className="group flex items-center gap-2 text-[#140d4f] font-bold text-lg hover:gap-4 transition-all">
@@ -585,7 +585,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <a href="#" className="text-3xl font-heading font-bold tracking-wider text-white block mb-6">
+            <a href="#" className="text-3xl font-cinzel font-bold tracking-wider text-white block mb-6">
               C&G <span className="text-primary">CORP</span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed font-mono">

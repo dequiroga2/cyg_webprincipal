@@ -12,7 +12,7 @@ html {
 @tailwind utilities;
 
 /* 2. Definir manualmente la clase font-heading */
-.font-heading {
+.font-cinzel {
   font-family: 'Cinzel', serif;
 }
 
