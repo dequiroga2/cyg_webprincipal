@@ -22,6 +22,7 @@ import {
   Server,
   ArrowRight
 } from "lucide-react";
+import { Link } from "wouter";
 
 import heroAbstract from "@assets/generated_images/logo_final.png";
 import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
@@ -64,10 +65,10 @@ const Nav = () => {
   }, []);
 
   const navLinks = [
-    { name: "Hybrid Model", href: "#hybrid" },
-    { name: "Impact", href: "#impact" },
-    { name: "Value", href: "#value" },
-    { name: "Solutions", href: "#solutions" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Industries", href: "/industries" },
+    { name: "Regulations", href: "/regulations" },
   ];
 
   return (
@@ -79,29 +80,31 @@ const Nav = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-heading font-bold tracking-wider text-white relative group">
-          C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
-        </a>
+        <Link href="/">
+          <a className="text-2xl font-heading font-bold tracking-wider text-white relative group cursor-pointer">
+            C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
+          </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-white/70 hover:text-primary transition-colors uppercase tracking-widest hover:tracking-[0.15em] duration-300"
-            >
-              {link.name}
-            </a>
+            <Link key={link.name} href={link.href}>
+              <a className="text-sm font-medium text-white/70 hover:text-primary transition-colors uppercase tracking-widest hover:tracking-[0.15em] duration-300">
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <Button 
-            variant="outline" 
-            className="relative overflow-hidden border-primary/50 text-white bg-transparent hover:bg-primary/10 hover:text-primary hover:border-primary transition-all duration-300 group rounded-full px-6"
-          >
-            <span className="relative z-10">Contact Us</span>
-            <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </Button>
+          <Link href="/contact-us">
+            <Button 
+              variant="outline" 
+              className="relative overflow-hidden border-primary/50 text-white bg-transparent hover:bg-primary/10 hover:text-primary hover:border-primary transition-all duration-300 group rounded-full px-6"
+            >
+              <span className="relative z-10">Contact Us</span>
+              <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -122,14 +125,14 @@ const Nav = () => {
           className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg font-medium text-white/80 hover:text-primary transition-colors block py-2 border-b border-white/5"
-            >
-              {link.name}
-            </a>
+            <Link key={link.name} href={link.href}>
+              <a
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium text-white/80 hover:text-primary transition-colors block py-2 border-b border-white/5"
+              >
+                {link.name}
+              </a>
+            </Link>
           ))}
         </motion.div>
       )}
@@ -578,7 +581,7 @@ const Footer = () => {
               C&G <span className="text-primary">CORP</span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed font-mono">
-              EST. 2024<br/>
+              EST. 2025<br/>
               VOICE PROCESS OUTSOURCING<br/>
               AI DIVISION
             </p>
