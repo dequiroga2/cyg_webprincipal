@@ -28,6 +28,7 @@ import heroAbstract from "@assets/generated_images/logo_final.png";
 import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glowing_rose_gold_core.png";
 import hybridVideo from "@assets/Video_Project_1764704898893.mp4";
 import logoIntroVideo from "@assets/generated_images/logo.mp4";
+import logo2Video from "@assets/generated_images/logo2.mp4";
 
 // --- Components ---
 
@@ -154,8 +155,8 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Variantes para la IMAGEN (Entra con el efecto morado)
-  const finalImageVariants: Variants = {
+  // Variantes para el VIDEO LOOP (Entra con el efecto morado)
+  const finalVideoVariants: Variants = {
     hidden: { 
       opacity: 0, 
       mixBlendMode: "normal" 
@@ -203,12 +204,15 @@ const Hero = () => {
            animate={introFinished ? "finished" : "playing"}
          />
 
-         {/* 2. LA IMAGEN: Aparece encima mientras el video desaparece debajo */}
-         <motion.img 
-           src={heroAbstract} 
-           alt="Abstract Ribbon"
+         {/* 2. EL VIDEO LOOP: Aparece encima mientras el video desaparece debajo */}
+         <motion.video 
+           src={logo2Video} 
+           autoPlay 
+           muted 
+           loop
+           playsInline
            className="absolute inset-0 w-full h-full object-cover scale-110 z-10"
-           variants={finalImageVariants}
+           variants={finalVideoVariants}
            initial="hidden"
            animate={introFinished ? "visible" : "hidden"}
          />
