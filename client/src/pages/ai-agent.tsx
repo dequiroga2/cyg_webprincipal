@@ -459,7 +459,7 @@ export default function AIAgentPage() {
                 Discover how our AI-powered framework can revolutionize your customer operations 
                 and drive unprecedented efficiency.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us#contact-form">
                 <a>
                   <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-6 text-lg">
                     Get Started Today

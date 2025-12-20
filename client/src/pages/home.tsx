@@ -366,9 +366,13 @@ const HybridModel = () => {
             <p className="text-white/80 leading-relaxed mb-8">
               Bring in trained CX specialists on demand. They use AI-assisted workflows to resolve complex issues quickly while keeping the conversation human.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg group">
-              Schedule Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link href="/contact-us#contact-form">
+              <a>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg group">
+                  Schedule Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </Link>
           </motion.div>
         </div>
       </div>

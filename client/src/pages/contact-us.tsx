@@ -111,6 +111,25 @@ const ContactUs = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle hash scroll on mount and hash change
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    };
+
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -247,7 +266,7 @@ const ContactUs = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 px-6 relative">
+      <section id="contact-form" className="py-20 px-6 relative">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Form */}
