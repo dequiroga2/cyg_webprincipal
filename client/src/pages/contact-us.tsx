@@ -247,16 +247,16 @@ const ContactUs = () => {
               >
                 <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 h-full group">
                   <CardContent className="p-8">
-                    <div className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-primary mb-4 group-hover:scale-125 transition-transform duration-300">
                       {info.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{info.title}</h3>
+                    <h3 className="text-xl font-bold mb-3 group-hover:scale-105 transition-all duration-300">{info.title}</h3>
                     <div className="space-y-1 mb-4">
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-white/70">{detail}</p>
+                        <p key={idx} className="text-white/70 group-hover:text-white/90 group-hover:scale-105 transition-all duration-300">{detail}</p>
                       ))}
                     </div>
-                    <p className="text-sm text-primary font-medium">{info.action}</p>
+                    <p className="text-sm text-primary font-medium group-hover:scale-105 transition-all duration-300">{info.action}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -399,41 +399,41 @@ const ContactUs = () => {
               className="space-y-8"
             >
               {/* Why Contact Us */}
-              <Card className="bg-gradient-to-br from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl">
+              <Card className="bg-gradient-to-br from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl group hover:from-primary/30 hover:to-[#1f5d6b]/30 transition-all duration-300">
                 <CardContent className="p-8">
-                  <MessageSquare className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-2xl font-bold mb-4">Why Contact Us?</h3>
+                  <MessageSquare className="w-12 h-12 text-primary mb-4 group-hover:scale-125 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold mb-4 group-hover:scale-105 transition-all duration-300">Why Contact Us?</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-white/80">Get expert advice tailored to your business needs</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-white/80 group-hover:text-white/95 group-hover:scale-105 transition-all duration-300">Get expert advice tailored to your business needs</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-white/80">Schedule a personalized demo of our solutions</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-white/80 group-hover:text-white/95 group-hover:scale-105 transition-all duration-300">Schedule a personalized demo of our solutions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-white/80">Receive a custom quote within 48 hours</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-white/80 group-hover:text-white/95 group-hover:scale-105 transition-all duration-300">Receive a custom quote within 48 hours</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-white/80">Connect with industry specialists</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-white/80 group-hover:text-white/95 group-hover:scale-105 transition-all duration-300">Connect with industry specialists</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
               {/* Office Locations */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card className="bg-white/5 border-white/10 backdrop-blur-xl group hover:bg-white/10 transition-all duration-300">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6">Global Offices</h3>
+                  <h3 className="text-2xl font-bold mb-6 group-hover:scale-105 transition-all duration-300">Global Offices</h3>
                   <div className="space-y-6">
                     {officeLocations.map((location, index) => (
-                      <div key={index} className="pb-6 border-b border-white/10 last:border-0 last:pb-0">
-                        <h4 className="font-bold text-lg mb-2">{location.city}</h4>
-                        <p className="text-white/70 text-sm mb-1">{location.address}</p>
-                        <p className="text-white/50 text-sm">{location.country}</p>
+                      <div key={index} className="pb-6 border-b border-white/10 last:border-0 last:pb-0 group-hover:scale-105 transition-all duration-300">
+                        <h4 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors duration-300">{location.city}</h4>
+                        <p className="text-white/70 text-sm mb-1 group-hover:text-white/90 transition-colors duration-300">{location.address}</p>
+                        <p className="text-white/50 text-sm group-hover:text-white/70 transition-colors duration-300">{location.country}</p>
                       </div>
                     ))}
                   </div>
@@ -441,21 +441,21 @@ const ContactUs = () => {
               </Card>
 
               {/* Social Media */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+              <Card className="bg-white/5 border-white/10 backdrop-blur-xl group hover:bg-white/10 transition-all duration-300">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6">Follow Us</h3>
+                  <h3 className="text-2xl font-bold mb-6 group-hover:scale-105 transition-all duration-300">Follow Us</h3>
                   <div className="flex gap-4">
-                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-colors group">
-                      <Linkedin className="w-6 h-6 group-hover:text-primary transition-colors" />
+                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+                      <Linkedin className="w-6 h-6 group-hover:text-primary transition-colors duration-300" />
                     </a>
-                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-colors group">
-                      <Twitter className="w-6 h-6 group-hover:text-primary transition-colors" />
+                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+                      <Twitter className="w-6 h-6 group-hover:text-primary transition-colors duration-300" />
                     </a>
-                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-colors group">
-                      <Facebook className="w-6 h-6 group-hover:text-primary transition-colors" />
+                    <a href="#" className="p-4 bg-white/5 rounded-xl hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+                      <Facebook className="w-6 h-6 group-hover:text-primary transition-colors duration-300" />
                     </a>
                   </div>
-                  <p className="text-white/60 text-sm mt-4">
+                  <p className="text-white/60 text-sm mt-4 group-hover:text-white/80 transition-colors duration-300">
                     Stay updated with our latest news and insights
                   </p>
                 </CardContent>

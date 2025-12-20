@@ -182,15 +182,15 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-gradient-to-br from-primary/10 to-[#1f5d6b]/5 border-primary/20 backdrop-blur-xl p-8 h-full">
+              <Card className="bg-gradient-to-br from-primary/10 to-[#1f5d6b]/5 border-primary/20 backdrop-blur-xl p-8 h-full hover:border-primary/40 hover:shadow-[0_0_30px_rgba(183,110,121,0.3)] transition-all duration-300 group">
                 <CardContent className="p-0">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-4 bg-primary/20 rounded-2xl">
+                    <div className="p-4 bg-primary/20 rounded-2xl group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
                       <Rocket className="w-8 h-8 text-primary" />
                     </div>
-                    <h2 className="text-3xl font-heading font-bold">Our Mission</h2>
+                    <h2 className="text-3xl font-heading font-bold group-hover:scale-105 transition-transform duration-300 origin-left">Our Mission</h2>
                   </div>
-                  <p className="text-white/70 text-lg leading-relaxed">
+                  <p className="text-white/70 text-lg leading-relaxed group-hover:text-white/90 transition-colors duration-300">
                     The mission of C&G Corp S.A.S. is to be a strategic partner
                     for our clients, maximizing portfolio recovery,
                     raising the quality of customer service, and boosting sales
@@ -208,15 +208,15 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-gradient-to-br from-purple-500/10 to-blue-500/5 border-purple-500/20 backdrop-blur-xl p-8 h-full">
+              <Card className="bg-gradient-to-br from-purple-500/10 to-blue-500/5 border-purple-500/20 backdrop-blur-xl p-8 h-full hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-300 group">
                 <CardContent className="p-0">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-4 bg-purple-500/20 rounded-2xl">
+                    <div className="p-4 bg-purple-500/20 rounded-2xl group-hover:scale-110 group-hover:bg-purple-500/30 transition-all duration-300">
                       <Lightbulb className="w-8 h-8 text-purple-400" />
                     </div>
-                    <h2 className="text-3xl font-heading font-bold">Our Vision</h2>
+                    <h2 className="text-3xl font-heading font-bold group-hover:scale-105 transition-transform duration-300 origin-left">Our Vision</h2>
                   </div>
-                  <p className="text-white/70 text-lg leading-relaxed">
+                  <p className="text-white/70 text-lg leading-relaxed group-hover:text-white/90 transition-colors duration-300">
                     To be the leading strategic partner in Latin America for
                     companies seeking to maximize portfolio recovery, boost sales, 
                     and enhance the customer experience through high-quality solutions, 
@@ -260,11 +260,11 @@ const AboutUs = () => {
               >
                 <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 h-full group">
                   <CardContent className="p-8">
-                    <div className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-primary mb-4 group-hover:scale-125 transition-transform duration-300">
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                    <p className="text-white/60 leading-relaxed">{value.description}</p>
+                    <h3 className="text-xl font-bold mb-3 group-hover:scale-105 transition-transform duration-300 origin-left">{value.title}</h3>
+                    <p className="text-white/60 leading-relaxed group-hover:text-white/80 group-hover:scale-105 transition-all duration-300">{value.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -304,11 +304,11 @@ const AboutUs = () => {
                 className={`flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-xl p-6 hover:bg-white/10 transition-all duration-300">
+                  <Card className="bg-white/5 border-white/10 backdrop-blur-xl p-6 hover:bg-white/10 transition-all duration-300 group">
                     <CardContent className="p-0">
-                      <div className="text-primary text-3xl font-bold mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                      <p className="text-white/60">{milestone.desc}</p>
+                      <div className="text-primary text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">{milestone.year}</div>
+                      <h3 className="text-xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">{milestone.title}</h3>
+                      <p className="text-white/60 group-hover:text-white/80 group-hover:scale-105 transition-all duration-300">{milestone.desc}</p>
                     </CardContent>
                   </Card>
                 </div>

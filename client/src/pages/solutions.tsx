@@ -341,14 +341,14 @@ const Solutions = () => {
                 transition={{ delay: index * 0.2 }}
                 className="mb-8"
               >
-                <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300">
+                <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 group">
                   <CardContent className="p-8 flex items-start gap-6">
-                    <div className="text-5xl font-bold text-primary/30 flex-shrink-0">
+                    <div className="text-5xl font-bold text-primary/30 flex-shrink-0 group-hover:scale-125 group-hover:text-primary/50 transition-all duration-300">
                       {step.step}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                      <p className="text-white/70 leading-relaxed">{step.description}</p>
+                      <h3 className="text-2xl font-bold mb-3 group-hover:scale-105 group-hover:text-primary transition-all duration-300 origin-left">{step.title}</h3>
+                      <p className="text-white/70 leading-relaxed group-hover:text-white/90 group-hover:scale-105 transition-all duration-300">{step.description}</p>
                     </div>
                   </CardContent>
                 </Card>

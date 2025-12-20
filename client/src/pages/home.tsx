@@ -315,16 +315,23 @@ const HybridModel = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            whileHover={{ scale: 1.02 }}
             className="text-left"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">AI Agent</h3>
+            <motion.h3 
+              whileHover={{ scale: 1.05, color: "rgb(183, 110, 121)" }}
+              transition={{ duration: 0.3 }}
+              className="text-3xl font-bold text-white mb-4 cursor-default origin-left"
+            >
+              AI Agent
+            </motion.h3>
             <p className="text-primary font-bold mb-4 text-sm uppercase tracking-widest">SPEED + SCALE FOR ROUTINE WORK</p>
             <p className="text-white/80 leading-relaxed mb-8">
               Automate high-volume, repeatable interactions with consistent quality. When the case requires a human touch, the AI hands off smoothly with full context.
             </p>
             <Link href="/ai-agent">
               <a>
-                <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg group">
+                <Button className="bg-primary hover:bg-primary/90 hover:scale-105 text-white rounded-full px-8 py-6 text-lg group transition-all duration-300">
                   Get AI Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
@@ -341,7 +348,11 @@ const HybridModel = () => {
             />
             
             {/* Video Container */}
-            <div className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(183,110,121,0.3)] z-10">
+            <motion.div 
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-64 h-64 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(183,110,121,0.3)] hover:shadow-[0_0_60px_rgba(183,110,121,0.6)] z-10 transition-shadow duration-500"
+            >
               <video
                 src={hybridVideo}
                 autoPlay
@@ -351,7 +362,7 @@ const HybridModel = () => {
                 className="w-full h-full object-cover opacity-90 scale-125"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-[#1f5d6b]/20 mix-blend-overlay"></div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Human Agent */}
@@ -359,16 +370,23 @@ const HybridModel = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            whileHover={{ scale: 1.02 }}
             className="text-left md:text-right flex flex-col items-start md:items-end"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">Human Agent</h3>
+            <motion.h3 
+              whileHover={{ scale: 1.05, color: "rgb(59, 130, 246)" }}
+              transition={{ duration: 0.3 }}
+              className="text-3xl font-bold text-white mb-4 cursor-default origin-right"
+            >
+              Human Agent
+            </motion.h3>
             <p className="text-blue-400 font-bold mb-4 text-sm uppercase tracking-widest">HIGH-EMPATHY, HIGH-COMPLEXITY CASES</p>
             <p className="text-white/80 leading-relaxed mb-8">
               Bring in trained CX specialists on demand. They use AI-assisted workflows to resolve complex issues quickly while keeping the conversation human.
             </p>
             <Link href="/contact-us#contact-form">
               <a>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg group">
+                <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white rounded-full px-8 py-6 text-lg group transition-all duration-300">
                   Schedule Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
@@ -444,18 +462,22 @@ const AIVoiceDemo = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/20 text-primary border-primary/50">
+            <Badge className="mb-4 bg-primary/20 text-primary border-primary/50 hover:scale-110 transition-transform duration-300 cursor-default">
               Experience Our AI
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-white">
+            <motion.h2 
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+              className="text-4xl md:text-5xl font-heading font-bold mb-4 text-white cursor-default"
+            >
               Hear Our AI Agent in Action
-            </h2>
+            </motion.h2>
             <p className="text-white/60 text-lg">
               Listen to a real simulation of our AI-powered voice agent handling a customer interaction
             </p>
           </div>
 
-          <Card className="bg-gradient-to-br from-primary/10 via-[#1f5d6b]/5 to-blue-500/10 border-primary/30 backdrop-blur-xl p-8 md:p-12">
+          <Card className="bg-gradient-to-br from-primary/10 via-[#1f5d6b]/5 to-blue-500/10 border-primary/30 backdrop-blur-xl p-8 md:p-12 hover:border-primary/50 hover:shadow-[0_0_50px_rgba(183,110,121,0.3)] transition-all duration-500 group">
             <CardContent className="p-0">
               <div className="flex flex-col items-center gap-8">
                 {/* Waveform Visual */}
@@ -576,9 +598,13 @@ const ValueGraph = () => {
     <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-[#0a1a24] to-[#050f15] text-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <motion.h2 
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
+            className="text-3xl md:text-5xl font-bold mb-4 cursor-default"
+          >
             More Value, <span className="text-primary">Lower Cost</span>
-          </h2>
+          </motion.h2>
           <p className="text-lg md:text-xl text-white/60">That's our standard.</p>
         </div>
 
@@ -591,8 +617,18 @@ const ValueGraph = () => {
         <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-12 md:gap-16 h-auto md:h-[500px] max-w-5xl mx-auto">
           
           {/* --- Value Graph --- */}
-          <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-6 md:mb-8">Value</h3>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="w-full md:flex-1 flex flex-col justify-end items-center gap-4"
+          >
+            <motion.h3 
+              whileHover={{ scale: 1.1, color: "rgb(34, 197, 94)" }}
+              transition={{ duration: 0.3 }}
+              className="text-2xl font-bold mb-6 md:mb-8 cursor-default"
+            >
+              Value
+            </motion.h3>
             <p className="text-primary font-medium text-xs md:text-sm uppercase tracking-widest mb-4">Customer Satisfaction</p>
             
             <div className="flex items-end gap-4 md:gap-8 h-[200px] md:h-[300px] w-full justify-center border-b border-white/20 pb-2">
@@ -619,7 +655,7 @@ const ValueGraph = () => {
                 <span className="text-[10px] md:text-sm font-bold text-white">C&G CORP</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Logo Divider (Escritorio) / Line Divider (Móvil) */}
           <div className="hidden md:flex items-center justify-center h-full pb-20">
@@ -629,8 +665,18 @@ const ValueGraph = () => {
           <div className="md:hidden w-1/2 h-[2px] bg-white/20 my-4"></div>
 
           {/* --- Costs Graph --- */}
-          <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-12 md:mb-8">Total Costs</h3>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="w-full md:flex-1 flex flex-col justify-end items-center gap-4"
+          >
+            <motion.h3 
+              whileHover={{ scale: 1.1, color: "rgb(34, 211, 238)" }}
+              transition={{ duration: 0.3 }}
+              className="text-2xl font-bold mb-12 md:mb-8 cursor-default"
+            >
+              Total Costs
+            </motion.h3>
             
             <div className="flex items-end gap-4 md:gap-8 h-[200px] md:h-[300px] w-full justify-center border-b border-white/20 pb-2">
               <div className="flex flex-col items-center gap-2 w-16 md:w-24 relative">
@@ -665,7 +711,7 @@ const ValueGraph = () => {
                <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-cyan-500 rounded-sm"></div> Operational Costs</div>
                <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-blue-600 rounded-sm"></div> Agent Compensation</div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
@@ -695,8 +741,14 @@ const Solutions = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <Badge variant="outline" className="mb-4 border-primary/50 text-primary animate-pulse">AI MODULES</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">Core Systems</span></h2>
+          <Badge variant="outline" className="mb-4 border-primary/50 text-primary animate-pulse hover:scale-110 transition-transform cursor-default">AI MODULES</Badge>
+          <motion.h2 
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
+            className="text-4xl md:text-5xl font-bold mb-6 text-white cursor-default"
+          >
+            Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">Core Systems</span>
+          </motion.h2>
           <p className="text-white/50 text-lg">Select the neural architecture that fits your enterprise needs.</p>
         </div>
 
@@ -716,12 +768,12 @@ const Solutions = () => {
                     <Layers size={64} />
                   </div>
                   
-                  <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(183,110,121,0.1)] group-hover:shadow-[0_0_30px_rgba(183,110,121,0.4)]">
+                  <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-primary mb-6 group-hover:scale-125 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(183,110,121,0.1)] group-hover:shadow-[0_0_30px_rgba(183,110,121,0.4)]">
                     {sol.icon}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{sol.title}</h3>
-                  <p className="text-white/50 text-sm mb-6 leading-relaxed">{sol.desc}</p>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary group-hover:scale-105 transition-all origin-left">{sol.title}</h3>
+                  <p className="text-white/50 text-sm mb-6 leading-relaxed group-hover:text-white/70 transition-colors">{sol.desc}</p>
                   
                   <div className="mt-auto">
                     <a href="#" className="text-xs font-bold uppercase tracking-widest text-white/30 group-hover:text-white flex items-center gap-2 transition-all">
