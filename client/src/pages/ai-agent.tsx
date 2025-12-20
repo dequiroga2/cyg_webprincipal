@@ -194,22 +194,48 @@ export default function AIAgentPage() {
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Intelligent Service Model
                       </h2>
-                      
-                      <div className="space-y-3 mb-8">
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Human-led support for complex cases.</span>
-                        </p>
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>AI-only service available 24/7.</span>
-                        </p>
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Hybrid human + AI model for efficiency.</span>
-                        </p>
-                      </div>
                     </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Users className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Human-Led</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Support for complex cases
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Bot className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">AI-Only</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Service available 24/7
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <UserCog className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Hybrid</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Human + AI for efficiency
+                      </p>
+                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -239,18 +265,35 @@ export default function AIAgentPage() {
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Adaptive Operations Management
                       </h2>
-                      
-                      <div className="space-y-3 mb-8">
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Scalable operations without slow hiring.</span>
-                        </p>
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Our trained experts or your team enhanced by AI.</span>
-                        </p>
-                      </div>
                     </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <HeadphonesIcon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Our Trained Experts</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Scalable operations without slow hiring
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Building2 className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Your Team Enhanced</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Enhanced by AI for productivity
+                      </p>
+                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -280,18 +323,35 @@ export default function AIAgentPage() {
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Connected Technology Ecosystem
                       </h2>
-                      
-                      <div className="space-y-3 mb-8">
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>AI-powered contact center platform.</span>
-                        </p>
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Seamless integration with existing business systems.</span>
-                        </p>
-                      </div>
                     </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Network className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">AI-Powered Platform</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Contact center platform ready to deploy
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Laptop className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Seamless Integration</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        With existing business systems
+                      </p>
+                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -321,18 +381,48 @@ export default function AIAgentPage() {
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         AI Capabilities & Automation
                       </h2>
-                      
-                      <div className="space-y-3 mb-8">
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>Smart automation across voice, chat, and email.</span>
-                        </p>
-                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>AI assistance, quality monitoring, and document processing.</span>
-                        </p>
-                      </div>
                     </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <MessageSquare className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Smart Automation</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Voice, chat, and email
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <Shield className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Quality Monitoring</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        AI-powered quality assurance
+                      </p>
+                    </motion.div>
+
+                    <motion.div 
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <FileText className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg mb-3">Document Processing</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Automated data extraction
+                      </p>
+                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
