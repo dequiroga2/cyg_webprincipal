@@ -184,8 +184,8 @@ const Industries = () => {
 
   const stats = [
     { number: "24/7", label: "Availability", icon: <Globe /> },
-    { number: "3+", label: "Support Channels", icon: <Building2 /> },
-    { number: "2 Step", label: "AI to Human Escalation", icon: <Users /> },
+    { number: "+ 99%", label: "SLA Target", icon: <Building2 /> },
+    { number: "3 Sources", label: "Docs + CRM + Tickets", icon: <Users /> },
     { number: "100%", label: "Customizable", icon: <Target /> }
   ];
 
