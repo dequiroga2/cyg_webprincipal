@@ -301,11 +301,11 @@ const HybridModel = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            From Human Experts to <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">Full Automation</span>
+            From Live Support to <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">End-to-End Automation</span>
           </h2>
           <p className="text-white/60 text-xl max-w-2xl mx-auto">
-            Flexibly choose the setup you need to elevate your Customer Experience.
+            Pick the setup that fits your operation and level up your customer experience.
           </p>
         </div>
 
@@ -317,14 +317,13 @@ const HybridModel = () => {
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">Artificial Agent</h3>
-            <p className="text-primary font-bold mb-4 text-sm uppercase tracking-widest">Automation Where It Adds Value</p>
+            <h3 className="text-3xl font-bold text-white mb-4">AI Agent</h3>
+            <p className="text-primary font-bold mb-4 text-sm uppercase tracking-widest">SPEED + SCALE FOR ROUTINE WORK</p>
             <p className="text-white/80 leading-relaxed mb-8">
-              Our artificial agents take care of routine tasks with speed and precision — maximizing efficiency at scale. 
-              When interactions become more complex, they seamlessly hand off to human experts.
+              Automate high-volume, repeatable interactions with consistent quality. When the case requires a human touch, the AI hands off smoothly with full context.
             </p>
             <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg group">
-              Get Artificial Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              Get AI Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
 
@@ -359,13 +358,12 @@ const HybridModel = () => {
             className="text-left md:text-right flex flex-col items-start md:items-end"
           >
             <h3 className="text-3xl font-bold text-white mb-4">Human Agent</h3>
-            <p className="text-blue-400 font-bold mb-4 text-sm uppercase tracking-widest">Empowered People Deliver Better CX</p>
+            <p className="text-blue-400 font-bold mb-4 text-sm uppercase tracking-widest">HIGH-EMPATHY, HIGH-COMPLEXITY CASES</p>
             <p className="text-white/80 leading-relaxed mb-8">
-              Our flexible talent model attracts top-performing CX professionals. 
-              Equipped with the best AI tools, they handle complex, high-empathy interactions that require a human touch.
+              Bring in trained CX specialists on demand. They use AI-assisted workflows to resolve complex issues quickly while keeping the conversation human.
             </p>
             <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg group">
-              Book Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              Schedule Human Agents <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </div>
