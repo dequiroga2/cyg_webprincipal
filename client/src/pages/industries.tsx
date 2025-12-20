@@ -342,13 +342,13 @@ const Industries = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden group hover:from-primary/30 hover:via-[#1f5d6b]/30 hover:to-blue-500/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
               <CardContent className="p-0 relative z-10">
                 <div className="text-center mb-8">
                   <Badge className="mb-4 bg-white/10 text-white border-white/20">
                     Industry Expertise
                   </Badge>
-                  <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+                  <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
                     Why Industry Leaders Choose Us
                   </h2>
                 </div>
@@ -356,64 +356,64 @@ const Industries = () => {
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <CheckCircle2 className="w-6 h-6 text-primary" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-bold mb-2">Deep Industry Knowledge</h3>
-                      <p className="text-white/70 text-sm">We understand your sector's unique challenges and regulations</p>
+                      <h3 className="font-bold mb-2 group-hover:scale-105 transition-all duration-300">Deep Industry Knowledge</h3>
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">We understand your sector's unique challenges and regulations</p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Zap className="w-6 h-6 text-primary" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-bold mb-2">Rapid Deployment</h3>
-                      <p className="text-white/70 text-sm">Industry-specific templates for faster implementation</p>
+                      <h3 className="font-bold mb-2 group-hover:scale-105 transition-all duration-300">Rapid Deployment</h3>
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">Industry-specific templates for faster implementation</p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <TrendingUp className="w-6 h-6 text-primary" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-bold mb-2">Proven ROI</h3>
-                      <p className="text-white/70 text-sm">Measurable results across all industries we serve</p>
+                      <h3 className="font-bold mb-2 group-hover:scale-105 transition-all duration-300">Proven ROI</h3>
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">Measurable results across all industries we serve</p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Users className="w-6 h-6 text-primary" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-bold mb-2">Dedicated Support</h3>
-                      <p className="text-white/70 text-sm">Industry specialists who understand your business</p>
+                      <h3 className="font-bold mb-2 group-hover:scale-105 transition-all duration-300">Dedicated Support</h3>
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">Industry specialists who understand your business</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-center">
                   <Link href="/contact-us">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full hover:scale-110 transition-all duration-300">
                       Discuss Your Industry Needs
                     </Button>
                   </Link>
                 </div>
               </CardContent>
               
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#1f5d6b]/30 transition-colors duration-300" />
             </Card>
           </motion.div>
         </div>

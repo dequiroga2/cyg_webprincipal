@@ -366,24 +366,24 @@ const Solutions = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 text-center relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 text-center relative overflow-hidden group hover:from-primary/30 hover:via-[#1f5d6b]/30 hover:to-blue-500/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
               <CardContent className="p-0 relative z-10">
-                <Brain className="w-16 h-16 mx-auto mb-6 text-primary" />
-                <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+                <Brain className="w-16 h-16 mx-auto mb-6 text-primary group-hover:scale-125 transition-transform duration-300" />
+                <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
                   Ready to Transform Your Contact Center?
                 </h2>
-                <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto group-hover:text-white/90 group-hover:scale-105 transition-all duration-300">
                   Let's discuss how our solutions can revolutionize your customer experience
                 </p>
                 <Link href="/contact-us">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full group">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full group/button hover:scale-110 transition-all duration-300">
                     Schedule a Demo
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 group-hover/button:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </CardContent>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#1f5d6b]/30 transition-colors duration-300" />
             </Card>
           </motion.div>
         </div>

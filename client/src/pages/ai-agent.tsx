@@ -450,18 +450,18 @@ export default function AIAgentPage() {
         className="py-20 px-6"
       >
         <div className="container mx-auto max-w-4xl">
-          <Card className="bg-gradient-to-br from-primary/20 to-primary/5 border-primary/30 overflow-hidden">
+          <Card className="bg-gradient-to-br from-primary/20 to-primary/5 border-primary/30 overflow-hidden group hover:from-primary/30 hover:to-primary/10 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
             <CardContent className="p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
                 Ready to Transform Your Operations?
               </h2>
-              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto group-hover:text-white/95 group-hover:scale-105 transition-all duration-300">
                 Discover how our AI-powered framework can revolutionize your customer operations 
                 and drive unprecedented efficiency.
               </p>
               <Link href="/contact-us#contact-form">
                 <a>
-                  <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-6 text-lg">
+                  <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-6 text-lg hover:scale-110 transition-all duration-300">
                     Get Started Today
                   </Button>
                 </a>

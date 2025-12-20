@@ -200,31 +200,31 @@ const Regulations = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-gradient-to-r from-blue-500/20 via-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-blue-500/20 via-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden group hover:from-blue-500/30 hover:via-primary/30 hover:to-[#1f5d6b]/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
               <CardContent className="p-0 relative z-10">
                 <div className="text-center">
-                  <Shield className="w-16 h-16 mx-auto mb-6 text-primary" />
-                  <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+                  <Shield className="w-16 h-16 mx-auto mb-6 text-primary group-hover:scale-125 transition-transform duration-300" />
+                  <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
                     Your Data Security is Our Priority
                   </h2>
-                  <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed group-hover:text-white/90 group-hover:scale-105 transition-all duration-300">
                     We invest heavily in maintaining the highest security standards and compliance 
                     certifications to protect your business and customer data. Our commitment to 
                     regulatory compliance ensures you can trust us with your most sensitive information.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/contact-us">
-                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full group">
+                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full group/button hover:scale-110 transition-all duration-300">
                         Request Compliance Documentation
-                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 group-hover/button:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
                   </div>
                 </div>
               </CardContent>
               
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-blue-500/30 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-colors duration-300" />
             </Card>
           </motion.div>
         </div>

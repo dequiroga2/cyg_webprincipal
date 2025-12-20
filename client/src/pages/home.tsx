@@ -776,9 +776,6 @@ const Solutions = () => {
                   <p className="text-white/50 text-sm mb-6 leading-relaxed group-hover:text-white/70 transition-colors">{sol.desc}</p>
                   
                   <div className="mt-auto">
-                    <a href="#" className="text-xs font-bold uppercase tracking-widest text-white/30 group-hover:text-white flex items-center gap-2 transition-all">
-                      Deploy Module <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform"/>
-                    </a>
                   </div>
                 </div>
               </div>

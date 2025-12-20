@@ -367,16 +367,16 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <Card className="bg-gradient-to-r from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12">
+            <Card className="bg-gradient-to-r from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12 group hover:from-primary/30 hover:to-[#1f5d6b]/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
               <CardContent className="p-0">
-                <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+                <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
                   Ready to Transform Your Business?
                 </h2>
-                <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto group-hover:text-white/90 group-hover:scale-105 transition-all duration-300">
                   Join hundreds of forward-thinking companies that trust C&G Corp
                 </p>
                 <Link href="/contact-us">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full hover:scale-110 transition-all duration-300">
                     Get Started Today
                   </Button>
                 </Link>
