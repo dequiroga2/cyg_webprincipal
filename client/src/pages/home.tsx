@@ -292,52 +292,7 @@ const Counter = ({ from, to, suffix = "" }: { from: number, to: number, suffix?:
   return <span ref={nodeRef} />;
 };
 
-const ImpactStats = () => {
-  return (
-    <section id="impact" className="py-0">
-      <div className="grid grid-cols-1 md:grid-cols-4 min-h-[400px]">
-        <div className="bg-[#2a1b85] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
-            <Globe size={120} />
-          </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
-            +<Counter from={0} to={120} suffix="k" />
-          </h3>
-          <p className="text-xl text-blue-200 font-medium relative z-10">Interactions Daily</p>
-        </div>
 
-        <div className="bg-[#140d4f] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
-            <Globe size={120} />
-          </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
-            <Counter from={0} to={26} />
-          </h3>
-          <p className="text-xl text-blue-200 font-medium relative z-10">Countries Served</p>
-        </div>
-
-        <div className="bg-[#2a1b85] p-12 flex flex-col justify-center items-start relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-all duration-500 transform group-hover:scale-150">
-            <Mic size={120} />
-          </div>
-          <h3 className="text-6xl font-heading font-bold text-white mb-2 relative z-10">
-            +<Counter from={0} to={30} />
-          </h3>
-          <p className="text-xl text-blue-200 font-medium relative z-10">Languages Supported</p>
-        </div>
-
-        <div className="bg-white flex flex-col justify-center items-start p-12 relative">
-          <h3 className="text-5xl font-heading font-bold text-[#140d4f] mb-6 leading-tight">
-            Not convinced yet?
-          </h3>
-          <a href="#" className="group flex items-center gap-2 text-[#140d4f] font-bold text-lg hover:gap-4 transition-all">
-            Meet the Team <ArrowRight className="group-hover:text-primary transition-colors" />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const HybridModel = () => {
   return (
@@ -414,6 +369,183 @@ const HybridModel = () => {
           </motion.div>
         </div>
       </div>
+    </section>
+  );
+};
+
+const AIVoiceDemo = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateDuration = () => setDuration(audio.duration);
+    const handleEnded = () => setIsPlaying(false);
+
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  }, []);
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (audioRef.current && duration) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percentage = x / rect.width;
+      const newTime = percentage * duration;
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-black to-[#0a0628] relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-primary/20 text-primary border-primary/50">
+              Experience Our AI
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-white">
+              Hear Our AI Agent in Action
+            </h2>
+            <p className="text-white/60 text-lg">
+              Listen to a real simulation of our AI-powered voice agent handling a customer interaction
+            </p>
+          </div>
+
+          <Card className="bg-gradient-to-br from-primary/10 via-purple-500/5 to-blue-500/10 border-primary/30 backdrop-blur-xl p-8 md:p-12">
+            <CardContent className="p-0">
+              <div className="flex flex-col items-center gap-8">
+                {/* Waveform Visual */}
+                <div className="flex items-center justify-center gap-1 md:gap-2 h-32 w-full">
+                  {[...Array(40)].map((_, i) => {
+                    const baseHeight = 20 + Math.sin(i * 0.5) * 15;
+                    const playingHeight = isPlaying ? 40 + Math.sin(i * 0.3) * 60 : baseHeight;
+                    return (
+                      <motion.div
+                        key={i}
+                        className="w-1 md:w-1.5 bg-gradient-to-t from-primary via-purple-400 to-blue-400 rounded-full"
+                        animate={{
+                          height: playingHeight,
+                          opacity: isPlaying ? [0.5, 1, 0.5] : 0.3,
+                        }}
+                        transition={{
+                          duration: isPlaying ? 0.8 : 0.3,
+                          repeat: isPlaying ? Infinity : 0,
+                          delay: i * 0.02,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+
+                {/* Custom Audio Player */}
+                <div className="w-full space-y-6">
+                  {/* Play Button & Time */}
+                  <div className="flex items-center gap-6">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={togglePlay}
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all relative group"
+                    >
+                      <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {isPlaying ? (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="flex gap-1.5"
+                        >
+                          <div className="w-1 h-6 bg-white rounded-full" />
+                          <div className="w-1 h-6 bg-white rounded-full" />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1"
+                        />
+                      )}
+                    </motion.button>
+
+                    <div className="flex-1 space-y-2">
+                      {/* Progress Bar */}
+                      <div 
+                        onClick={handleSeek}
+                        className="h-2 bg-white/10 rounded-full cursor-pointer relative overflow-hidden group"
+                      >
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-primary to-purple-400 rounded-full relative"
+                          style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                        >
+                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </motion.div>
+                      </div>
+
+                      {/* Time Display */}
+                      <div className="flex justify-between text-sm text-white/60 font-mono">
+                        <span>{formatTime(currentTime)}</span>
+                        <span>{duration ? formatTime(duration) : '0:00'}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hidden Audio Element */}
+                  <audio ref={audioRef} src="/path-to-your-audio.mp3" preload="metadata" />
+                </div>
+
+                {/* Info Text */}
+                <div className="text-center pt-4 border-t border-white/10 w-full">
+                  <p className="text-white/80 text-sm flex items-center justify-center gap-2">
+                    <Mic className="w-4 h-4 text-primary" />
+                    Sample interaction: Customer support inquiry with intelligent routing
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
     </section>
   );
 };
@@ -645,8 +777,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-x-hidden">
       <Nav />
       <Hero />
-      <ImpactStats />
       <HybridModel />
+      <AIVoiceDemo />
       <ValueGraph />
       <Solutions />
       <Footer />
