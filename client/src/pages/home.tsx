@@ -567,13 +567,13 @@ const AIVoiceDemo = () => {
 
 const ValueGraph = () => {
   return (
-    <section id="value" className="py-20 md:py-32 bg-[#f0f0f5] text-[#140d4f] relative overflow-hidden">
+    <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-[#0a0628] to-[#050314] text-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             More Value, <span className="text-primary">Lower Cost</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600">That's our standard.</p>
+          <p className="text-lg md:text-xl text-white/60">That's our standard.</p>
         </div>
 
         {/* CAMBIO CLAVE 1: 
@@ -586,74 +586,78 @@ const ValueGraph = () => {
           
           {/* --- Value Graph --- */}
           <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-4 md:mb-8">Value</h3>
+            <h3 className="text-2xl font-bold mb-6 md:mb-8">Value</h3>
             <p className="text-primary font-medium text-xs md:text-sm uppercase tracking-widest mb-4">Customer Satisfaction</p>
             
-            <div className="flex items-end gap-4 md:gap-8 h-[250px] md:h-[300px] w-full justify-center border-b border-gray-300 pb-2">
-              <div className="flex flex-col items-center gap-2 w-20 md:w-24">
+            <div className="flex items-end gap-4 md:gap-8 h-[200px] md:h-[300px] w-full justify-center border-b border-white/20 pb-2">
+              <div className="flex flex-col items-center gap-2 w-16 md:w-24">
                 <motion.div 
                   initial={{ height: 0 }}
-                  whileInView={{ height: "120px" }}
+                  whileInView={{ height: "80px" }}
+                  viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.2 }}
-                  className="w-full bg-orange-200 rounded-t-2xl opacity-80"
+                  className="w-full bg-gradient-to-t from-orange-600 to-orange-400 rounded-t-2xl shadow-lg"
                 />
-                <span className="text-xs md:text-sm font-bold text-gray-500">Conventional</span>
+                <span className="text-[10px] md:text-sm font-bold text-white/60">Conventional</span>
               </div>
 
-              <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
-                <div className="absolute -top-10 md:-top-12 font-bold text-2xl md:text-3xl text-[#140d4f]">+15%</div>
+              <div className="flex flex-col items-center gap-2 w-16 md:w-24 relative">
+                <div className="absolute -top-8 md:-top-12 font-bold text-lg md:text-3xl text-green-400">+15%</div>
                 <motion.div 
                   initial={{ height: 0 }}
-                  whileInView={{ height: "240px" }}
+                  whileInView={{ height: "160px" }}
+                  viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="w-full bg-[#ff6b4a] rounded-t-2xl shadow-xl"
+                  className="w-full bg-gradient-to-t from-green-600 to-green-400 rounded-t-2xl shadow-xl shadow-green-500/20"
                 />
-                <span className="text-xs md:text-sm font-bold text-[#140d4f]">C&G CORP</span>
+                <span className="text-[10px] md:text-sm font-bold text-white">C&G CORP</span>
               </div>
             </div>
           </div>
 
           {/* Logo Divider (Escritorio) / Line Divider (Móvil) */}
           <div className="hidden md:flex items-center justify-center h-full pb-20">
-            <div className="text-3xl font-bold text-gray-300 transform -rotate-90 tracking-widest">VS</div>
+            <div className="text-3xl font-bold text-white/30 transform -rotate-90 tracking-widest">VS</div>
           </div>
           {/* Divisor solo para móvil para separar las graficas */}
-          <div className="md:hidden w-1/2 h-[2px] bg-gray-200 my-4"></div>
+          <div className="md:hidden w-1/2 h-[2px] bg-white/20 my-4"></div>
 
           {/* --- Costs Graph --- */}
           <div className="w-full md:flex-1 flex flex-col justify-end items-center gap-4">
-            <h3 className="text-2xl font-bold mb-4 md:mb-8">Total Costs</h3>
+            <h3 className="text-2xl font-bold mb-12 md:mb-8">Total Costs</h3>
             
-            <div className="flex items-end gap-4 md:gap-8 h-[250px] md:h-[300px] w-full justify-center border-b border-gray-300 pb-2">
-              <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
-                <div className="absolute -top-10 md:-top-12 font-bold text-2xl md:text-3xl text-[#140d4f]">-20%</div>
+            <div className="flex items-end gap-4 md:gap-8 h-[200px] md:h-[300px] w-full justify-center border-b border-white/20 pb-2">
+              <div className="flex flex-col items-center gap-2 w-16 md:w-24 relative">
+                <div className="absolute -top-8 md:-top-12 font-bold text-lg md:text-3xl text-cyan-400">-20%</div>
+                <motion.div 
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "120px" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t-2xl shadow-xl shadow-cyan-500/20 flex flex-col justify-end overflow-hidden"
+                >
+                  <div className="h-1/3 bg-blue-600/80 w-full"></div>
+                </motion.div>
+                <span className="text-[10px] md:text-sm font-bold text-white">C&G CORP</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 w-16 md:w-24">
                 <motion.div 
                   initial={{ height: 0 }}
                   whileInView={{ height: "180px" }}
-                  transition={{ duration: 1, delay: 0.6 }}
-                  className="w-full bg-[#4d3df7] rounded-t-2xl shadow-xl flex flex-col justify-end overflow-hidden"
-                >
-                  <div className="h-1/3 bg-[#2a1b85] w-full"></div>
-                </motion.div>
-                <span className="text-xs md:text-sm font-bold text-[#140d4f]">C&G CORP</span>
-              </div>
-
-              <div className="flex flex-col items-center gap-2 w-20 md:w-24">
-                <motion.div 
-                  initial={{ height: 0 }}
-                  whileInView={{ height: "280px" }}
+                  viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.8 }}
-                  className="w-full bg-[#4d3df7] rounded-t-2xl opacity-40 flex flex-col justify-end overflow-hidden"
+                  className="w-full bg-gradient-to-t from-cyan-600/40 to-cyan-400/40 rounded-t-2xl flex flex-col justify-end overflow-hidden"
                 >
-                   <div className="h-1/3 bg-[#2a1b85] w-full opacity-50"></div>
+                   <div className="h-1/3 bg-blue-600/30 w-full"></div>
                 </motion.div>
-                <span className="text-xs md:text-sm font-bold text-gray-500">Conventional</span>
+                <span className="text-[10px] md:text-sm font-bold text-white/60">Conventional</span>
               </div>
             </div>
             
-            <div className="flex gap-4 mt-4 text-[10px] md:text-xs font-medium text-gray-500">
-               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-[#4d3df7]"></div> Operational Costs</div>
-               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-[#2a1b85]"></div> Agent Compensation</div>
+            <div className="flex gap-4 mt-4 text-[10px] md:text-xs font-medium text-white/60">
+               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-cyan-500 rounded-sm"></div> Operational Costs</div>
+               <div className="flex items-center gap-2"><div className="w-2 h-2 md:w-3 md:h-3 bg-blue-600 rounded-sm"></div> Agent Compensation</div>
             </div>
           </div>
 
