@@ -323,13 +323,7 @@ const Industries = () => {
                           <div className="text-3xl font-bold text-primary">{industry.stats.improvement}</div>
                           <div className="text-white/60 text-sm">{industry.stats.metric}</div>
                         </div>
-                        <Button 
-                          variant="ghost" 
-                          className="text-primary hover:text-white hover:bg-primary/20 group/btn"
-                        >
-                          Learn More
-                          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </Button>
+                        
                       </div>
                     </div>
                   </CardContent>
