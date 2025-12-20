@@ -322,9 +322,13 @@ const HybridModel = () => {
             <p className="text-white/80 leading-relaxed mb-8">
               Automate high-volume, repeatable interactions with consistent quality. When the case requires a human touch, the AI hands off smoothly with full context.
             </p>
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg group">
-              Get AI Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link href="/ai-agent">
+              <a>
+                <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg group">
+                  Get AI Agent <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </Link>
           </motion.div>
 
           {/* Center Video Graphic */}

@@ -10,6 +10,7 @@ import Solutions from "@/pages/solutions";
 import Industries from "@/pages/industries";
 import Regulations from "@/pages/regulations";
 import ContactUs from "@/pages/contact-us";
+import AIAgent from "@/pages/ai-agent";
 import { useEffect } from "react";
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/industries" component={Industries} />
         <Route path="/regulations" component={Regulations} />
         <Route path="/contact-us" component={ContactUs} />
+        <Route path="/ai-agent" component={AIAgent} />
         <Route component={NotFound} />
       </Switch>
     </>
