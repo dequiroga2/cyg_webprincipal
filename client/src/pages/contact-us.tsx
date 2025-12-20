@@ -33,7 +33,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#140d4f]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -77,7 +77,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -182,7 +182,7 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0628] via-[#140d4f] to-[#1a1147] text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a1a24] via-[#0d1f28] to-[#152838] text-white overflow-hidden">
       <Nav />
 
       {/* Hero Section */}
@@ -200,7 +200,7 @@ const ContactUs = () => {
             <Badge className="mb-6 bg-primary/20 text-primary border-primary/50 px-6 py-2 text-sm">
               Get in Touch
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-purple-400">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-[#2d8a9e]">
               Let's Start a Conversation
             </h1>
             <p className="text-xl text-white/60 leading-relaxed max-w-3xl mx-auto">
@@ -211,7 +211,7 @@ const ContactUs = () => {
         </div>
 
         <div className="absolute top-40 left-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full blur-[120px] pointer-events-none" />
       </motion.section>
 
       {/* Contact Info Cards */}
@@ -380,7 +380,7 @@ const ContactUs = () => {
               className="space-y-8"
             >
               {/* Why Contact Us */}
-              <Card className="bg-gradient-to-br from-primary/20 to-purple-500/20 border-primary/30 backdrop-blur-xl">
+              <Card className="bg-gradient-to-br from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl">
                 <CardContent className="p-8">
                   <MessageSquare className="w-12 h-12 text-primary mb-4" />
                   <h3 className="text-2xl font-bold mb-4">Why Contact Us?</h3>

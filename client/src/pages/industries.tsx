@@ -32,7 +32,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#140d4f]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -76,7 +76,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -137,8 +137,8 @@ const Industries = () => {
       challenges: ["Technical support", "Billing inquiries", "Network issues", "Plan management"],
       solutions: ["Network diagnostics AI", "Automated troubleshooting", "Real-time monitoring", "Self-service portals"],
       stats: { improvement: "45%", metric: "Call deflection rate" },
-      gradient: "from-purple-500/20 to-violet-500/20",
-      borderColor: "border-purple-500/30"
+      gradient: "from-[#1f5d6b]/20 to-violet-500/20",
+      borderColor: "border-[#1f5d6b]/30"
     },
     {
       icon: <Plane className="w-14 h-14" />,
@@ -190,7 +190,7 @@ const Industries = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0628] via-[#140d4f] to-[#1a1147] text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a1a24] via-[#0d1f28] to-[#152838] text-white overflow-hidden">
       <Nav />
 
       {/* Hero Section */}
@@ -208,7 +208,7 @@ const Industries = () => {
             <Badge className="mb-6 bg-primary/20 text-primary border-primary/50 px-6 py-2 text-sm">
               Industries We Serve
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-purple-400">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-[#2d8a9e]">
               Industry-Specific Solutions
               <br />for Every Sector
             </h1>
@@ -220,7 +220,7 @@ const Industries = () => {
         </div>
 
         <div className="absolute top-40 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full blur-[120px] pointer-events-none" />
       </motion.section>
 
       {/* Stats Section */}
@@ -349,7 +349,7 @@ const Industries = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-gradient-to-r from-primary/20 via-purple-500/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden">
               <CardContent className="p-0 relative z-10">
                 <div className="text-center mb-8">
                   <Badge className="mb-4 bg-white/10 text-white border-white/20">
@@ -420,7 +420,7 @@ const Industries = () => {
               </CardContent>
               
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none" />
             </Card>
           </motion.div>
         </div>

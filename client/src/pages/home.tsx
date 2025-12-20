@@ -78,7 +78,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#140d4f]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -125,7 +125,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -244,7 +244,7 @@ const Hero = () => {
             <Link href="/contact-us">
               <Button size="lg" className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-white px-8 py-3 rounded-full text-base backdrop-blur-sm">
                 <span className="relative z-10 flex items-center gap-2">Book a Demo <Zap size={18} className="group-hover:text-yellow-300 transition-colors"/></span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-[#1a4d59]/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
               </Button>
             </Link>
@@ -302,7 +302,7 @@ const HybridModel = () => {
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             From Human Experts to <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Full Automation</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">Full Automation</span>
           </h2>
           <p className="text-white/60 text-xl max-w-2xl mx-auto">
             Flexibly choose the setup you need to elevate your Customer Experience.
@@ -347,7 +347,7 @@ const HybridModel = () => {
                 playsInline
                 className="w-full h-full object-cover opacity-90 scale-125"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-[#1f5d6b]/20 mix-blend-overlay"></div>
             </div>
           </div>
 
@@ -428,7 +428,7 @@ const AIVoiceDemo = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-[#0a0628] relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-black to-[#0a1a24] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -449,7 +449,7 @@ const AIVoiceDemo = () => {
             </p>
           </div>
 
-          <Card className="bg-gradient-to-br from-primary/10 via-purple-500/5 to-blue-500/10 border-primary/30 backdrop-blur-xl p-8 md:p-12">
+          <Card className="bg-gradient-to-br from-primary/10 via-[#1f5d6b]/5 to-blue-500/10 border-primary/30 backdrop-blur-xl p-8 md:p-12">
             <CardContent className="p-0">
               <div className="flex flex-col items-center gap-8">
                 {/* Waveform Visual */}
@@ -498,7 +498,7 @@ const AIVoiceDemo = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={togglePlay}
-                      className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all relative group"
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-primary to-[#1f5d6b] flex items-center justify-center shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all relative group"
                     >
                       <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {isPlaying ? (
@@ -526,7 +526,7 @@ const AIVoiceDemo = () => {
                         className="h-2 bg-white/10 rounded-full cursor-pointer relative overflow-hidden group"
                       >
                         <motion.div
-                          className="h-full bg-gradient-to-r from-primary to-purple-400 rounded-full relative"
+                          className="h-full bg-gradient-to-r from-primary to-[#2d8a9e] rounded-full relative"
                           style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
                         >
                           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -560,14 +560,14 @@ const AIVoiceDemo = () => {
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full blur-[120px] pointer-events-none" />
     </section>
   );
 };
 
 const ValueGraph = () => {
   return (
-    <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-[#0a0628] to-[#050314] text-white relative overflow-hidden">
+    <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-[#0a1a24] to-[#050f15] text-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -676,7 +676,7 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="py-32 bg-[#0a0628] relative">
+    <section id="solutions" className="py-32 bg-[#0a1a24] relative">
       {/* Abstract lines background */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
@@ -690,7 +690,7 @@ const Solutions = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <Badge variant="outline" className="mb-4 border-primary/50 text-primary animate-pulse">AI MODULES</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Core Systems</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2d8a9e]">Core Systems</span></h2>
           <p className="text-white/50 text-lg">Select the neural architecture that fits your enterprise needs.</p>
         </div>
 
@@ -704,8 +704,8 @@ const Solutions = () => {
               transition={{ delay: i * 0.1 }}
               className="group"
             >
-              <div className="h-full p-[1px] rounded-2xl bg-gradient-to-b from-white/10 to-transparent hover:from-primary/50 hover:to-purple-500/50 transition-all duration-500">
-                <div className="bg-[#0e0935] h-full rounded-2xl p-8 flex flex-col relative overflow-hidden">
+              <div className="h-full p-[1px] rounded-2xl bg-gradient-to-b from-white/10 to-transparent hover:from-primary/50 hover:to-[#1f5d6b]/50 transition-all duration-500">
+                <div className="bg-[#0e1d28] h-full rounded-2xl p-8 flex flex-col relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                     <Layers size={64} />
                   </div>
@@ -734,7 +734,7 @@ const Solutions = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#050314] py-20 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#050f15] py-20 border-t border-white/10 relative overflow-hidden">
       {/* Footer Grid Background */}
        <div className="absolute inset-0 opacity-5 pointer-events-none" 
             style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>

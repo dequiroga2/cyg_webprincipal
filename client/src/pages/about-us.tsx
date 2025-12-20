@@ -31,7 +31,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#140d4f]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -75,7 +75,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -138,7 +138,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0628] via-[#140d4f] to-[#1a1147] text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a1a24] via-[#0d1f28] to-[#152838] text-white overflow-hidden">
       <Nav />
 
       {/* Hero Section */}
@@ -156,7 +156,7 @@ const AboutUs = () => {
             <Badge className="mb-6 bg-primary/20 text-primary border-primary/50 px-6 py-2 text-sm">
               Who We Are
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-purple-400">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-[#2d8a9e]">
               Transforming Contact Centers
               <br />Through Innovation
             </h1>
@@ -169,7 +169,7 @@ const AboutUs = () => {
 
         {/* Decorative elements */}
         <div className="absolute top-40 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full blur-[120px] pointer-events-none" />
       </motion.section>
 
       {/* Mission & Vision */}
@@ -182,7 +182,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-gradient-to-br from-primary/10 to-purple-500/5 border-primary/20 backdrop-blur-xl p-8 h-full">
+              <Card className="bg-gradient-to-br from-primary/10 to-[#1f5d6b]/5 border-primary/20 backdrop-blur-xl p-8 h-full">
                 <CardContent className="p-0">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="p-4 bg-primary/20 rounded-2xl">
@@ -238,7 +238,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/50">
+            <Badge className="mb-4 bg-[#1f5d6b]/20 text-[#2d8a9e] border-[#1f5d6b]/50">
               Our Foundation
             </Badge>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -292,7 +292,7 @@ const AboutUs = () => {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-purple-500 to-blue-500 hidden md:block" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-[#1f5d6b] to-blue-500 hidden md:block" />
             
             {milestones.map((milestone, index) => (
               <motion.div
@@ -313,7 +313,7 @@ const AboutUs = () => {
                   </Card>
                 </div>
                 <div className="hidden md:flex w-2/12 justify-center">
-                  <div className="w-6 h-6 bg-primary rounded-full border-4 border-[#140d4f]" />
+                  <div className="w-6 h-6 bg-primary rounded-full border-4 border-[#0d1f28]" />
                 </div>
                 <div className="hidden md:block w-5/12" />
               </motion.div>
@@ -345,7 +345,7 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-to-br from-primary/20 to-purple-500/10 border-primary/30 backdrop-blur-xl text-center p-8 hover:scale-105 transition-transform duration-300">
+                <Card className="bg-gradient-to-br from-primary/20 to-[#1f5d6b]/10 border-primary/30 backdrop-blur-xl text-center p-8 hover:scale-105 transition-transform duration-300">
                   <CardContent className="p-0">
                     <div className="text-5xl font-bold text-primary mb-2">{stat.count}</div>
                     <h3 className="text-xl font-bold mb-2">{stat.name}</h3>
@@ -367,7 +367,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <Card className="bg-gradient-to-r from-primary/20 to-purple-500/20 border-primary/30 backdrop-blur-xl p-12">
+            <Card className="bg-gradient-to-r from-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12">
               <CardContent className="p-0">
                 <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
                   Ready to Transform Your Business?

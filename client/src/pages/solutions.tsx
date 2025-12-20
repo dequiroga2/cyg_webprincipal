@@ -32,7 +32,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#140d4f]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -76,7 +76,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#140d4f]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -113,7 +113,7 @@ const Solutions = () => {
       title: "Hybrid Workforce Model",
       description: "Seamlessly blend AI agents with human experts for optimal customer experience",
       features: ["Intelligent Routing", "Real-time Collaboration", "Skill-based Assignment", "Performance Analytics"],
-      gradient: "from-primary/20 to-purple-500/20",
+      gradient: "from-primary/20 to-[#1f5d6b]/20",
       borderColor: "border-primary/30"
     },
     {
@@ -121,8 +121,8 @@ const Solutions = () => {
       title: "Cloud Contact Center",
       description: "Scalable, secure cloud infrastructure that grows with your business",
       features: ["Global Deployment", "99.99% Uptime", "Auto-scaling", "Data Security"],
-      gradient: "from-purple-500/20 to-pink-500/20",
-      borderColor: "border-purple-500/30"
+      gradient: "from-[#1f5d6b]/20 to-pink-500/20",
+      borderColor: "border-[#1f5d6b]/30"
     },
     {
       icon: <BarChart3 className="w-12 h-12" />,
@@ -186,7 +186,7 @@ const Solutions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0628] via-[#140d4f] to-[#1a1147] text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a1a24] via-[#0d1f28] to-[#152838] text-white overflow-hidden">
       <Nav />
 
       {/* Hero Section */}
@@ -320,7 +320,7 @@ const Solutions = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/50">
+            <Badge className="mb-4 bg-[#1f5d6b]/20 text-[#2d8a9e] border-[#1f5d6b]/50">
               Our Process
             </Badge>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -366,7 +366,7 @@ const Solutions = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-primary/20 via-purple-500/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 text-center relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 text-center relative overflow-hidden">
               <CardContent className="p-0 relative z-10">
                 <Brain className="w-16 h-16 mx-auto mb-6 text-primary" />
                 <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
@@ -383,7 +383,7 @@ const Solutions = () => {
                 </Link>
               </CardContent>
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none" />
             </Card>
           </motion.div>
         </div>
