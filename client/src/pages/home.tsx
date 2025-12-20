@@ -830,16 +830,16 @@ const Footer = () => {
               <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all cursor-pointer group">
                 <Globe size={20} className="text-white/50 group-hover:text-white" />
               </div>
-              <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all cursor-pointer group">
+              <a href="tel:+491762257043" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all cursor-pointer group">
                 <Phone size={20} className="text-white/50 group-hover:text-white" />
-              </div>
+              </a>
             </div>
           </div>
         </div>
         
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs font-mono text-white/20">SYSTEM VERSION 2.0.5 // ALL RIGHTS RESERVED</p>
-          <p className="text-xs font-mono text-white/20">DESIGNED BY REPLIT AGENT</p>
+          <p className="text-xs font-mono text-white/20">DESIGNED BY C&G CORP</p>
         </div>
       </div>
     </footer>

@@ -159,7 +159,7 @@ const ContactUs = () => {
     {
       icon: <Phone className="w-8 h-8" />,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["+49 (176) 225-70431", "+57 (320) 340-6072"],
       action: "Call us anytime"
     },
     {
@@ -171,7 +171,7 @@ const ContactUs = () => {
     {
       icon: <MapPin className="w-8 h-8" />,
       title: "Office",
-      details: ["123 Business Avenue", "New York, NY 10001"],
+      details: ["Maistraße 10 - 80337", "Múnich, MUC"],
       action: "Visit our headquarters"
     },
     {
@@ -184,20 +184,15 @@ const ContactUs = () => {
 
   const officeLocations = [
     {
-      city: "New York",
-      address: "123 Business Avenue, Suite 500",
-      country: "United States"
+      city: "Múnich",
+      address: "Maistraße 10 - 80337",
+      country: "Germany"
     },
     {
-      city: "London",
-      address: "456 Tech Street, Floor 10",
-      country: "United Kingdom"
+      city: "Bogotá D.C.",
+      address: "Ak 15 #124-30, Usaquén, Bogotá",
+      country: "Colombia"
     },
-    {
-      city: "Singapore",
-      address: "789 Innovation Road, Tower A",
-      country: "Singapore"
-    }
   ];
 
   return (
