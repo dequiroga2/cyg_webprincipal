@@ -30,6 +30,7 @@ import hybridVideo from "@assets/Video_Project_1764704898893.mp4";
 import logoIntroVideo from "@assets/generated_images/logo.mp4";
 import logo2Video from "@assets/generated_images/logo2.mp4";
 import logoNav from "@assets/generated_images/logo_nav.png";
+import aiVoiceAudio from "@assets/aivoice.mp3";
 
 // --- Components ---
 
@@ -454,21 +455,35 @@ const AIVoiceDemo = () => {
                 {/* Waveform Visual */}
                 <div className="flex items-center justify-center gap-1 md:gap-2 h-32 w-full">
                   {[...Array(40)].map((_, i) => {
-                    const baseHeight = 20 + Math.sin(i * 0.5) * 15;
-                    const playingHeight = isPlaying ? 40 + Math.sin(i * 0.3) * 60 : baseHeight;
+                    // Crear alturas más realistas basadas en frecuencias
+                    const frequency = Math.sin(i * 0.15) * 0.5 + 0.5;
+                    const baseHeight = 15 + frequency * 25;
+                    
+                    // Diferentes intensidades para simular espectro de audio
+                    const intensity = Math.random() * 0.6 + 0.4;
+                    const maxHeight = 30 + frequency * 80;
+                    const playingHeight = isPlaying ? baseHeight + intensity * maxHeight : baseHeight;
+                    
+                    // Velocidades variables para cada barra
+                    const animationSpeed = 0.4 + Math.random() * 0.6;
+                    
                     return (
                       <motion.div
                         key={i}
-                        className="w-1 md:w-1.5 bg-gradient-to-t from-primary via-purple-400 to-blue-400 rounded-full"
+                        className="w-1 md:w-1.5 rounded-full"
+                        style={{
+                          background: `linear-gradient(to top, rgb(183, 110, 121), rgb(168, 85, 247), rgb(59, 130, 246))`,
+                        }}
                         animate={{
                           height: playingHeight,
-                          opacity: isPlaying ? [0.5, 1, 0.5] : 0.3,
+                          opacity: isPlaying ? [0.4 + intensity * 0.3, 0.8 + intensity * 0.2, 0.4 + intensity * 0.3] : 0.25,
+                          scaleY: isPlaying ? [1, 1.1, 1] : 1,
                         }}
                         transition={{
-                          duration: isPlaying ? 0.8 : 0.3,
+                          duration: animationSpeed,
                           repeat: isPlaying ? Infinity : 0,
-                          delay: i * 0.02,
-                          ease: "easeInOut",
+                          delay: i * 0.015,
+                          ease: [0.43, 0.13, 0.23, 0.96],
                         }}
                       />
                     );
@@ -527,7 +542,7 @@ const AIVoiceDemo = () => {
                   </div>
 
                   {/* Hidden Audio Element */}
-                  <audio ref={audioRef} src="/path-to-your-audio.mp3" preload="metadata" />
+                  <audio ref={audioRef} src={aiVoiceAudio} preload="metadata" />
                 </div>
 
                 {/* Info Text */}
