@@ -131,9 +131,9 @@ const AboutUs = () => {
   ];
 
   const team = [
-    { name: "Leadership Team", count: "25+", desc: "Years of combined experience" },
+    { name: "Languages", count: "25+", desc: "Many languages to choose" },
     { name: "Global Workforce", count: "10K+", desc: "Dedicated professionals" },
-    { name: "Countries Served", count: "30+", desc: "Worldwide presence" },
+    { name: "Countries Served", count: "3+", desc: "Worldwide presence" },
     { name: "Client Satisfaction", count: "98%", desc: "Consistent excellence" }
   ];
 

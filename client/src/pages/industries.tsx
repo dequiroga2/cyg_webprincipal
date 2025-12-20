@@ -322,8 +322,7 @@ const Industries = () => {
                         <div>
                           <div className="text-3xl font-bold text-primary">{industry.stats.improvement}</div>
                           <div className="text-white/60 text-sm">{industry.stats.metric}</div>
-                        </div>
-                        
+                        </div>                        
                       </div>
                     </div>
                   </CardContent>
