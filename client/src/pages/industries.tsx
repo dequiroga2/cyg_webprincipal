@@ -184,9 +184,9 @@ const Industries = () => {
 
   const stats = [
     { number: "24/7", label: "Availability", icon: <Globe /> },
-    { number: "Multi-channel", label: "Web, Voice and Chat", icon: <Building2 /> },
-    { number: "Fast Setup", label: "Go live in days, not weeks", icon: <Users /> },
-    { number: "Human + AI", label: "Seamless handoff support", icon: <Target /> }
+    { number: "3+", label: "Support Channels", icon: <Building2 /> },
+    { number: "2 Step", label: "AI to Human Escalation", icon: <Users /> },
+    { number: "100%", label: "Customizable", icon: <Target /> }
   ];
 
   return (
