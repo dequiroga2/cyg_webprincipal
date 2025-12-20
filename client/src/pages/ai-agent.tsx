@@ -160,8 +160,7 @@ export default function AIAgentPage() {
               </span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              A comprehensive approach to transform your customer operations with intelligent automation, 
-              flexible talent, and seamless technology integration.
+              A 4-step model for contact center digital transformation.
             </p>
           </motion.div>
         </div>
@@ -192,60 +191,25 @@ export default function AIAgentPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Intelligent Service Model
                       </h2>
-                      <p className="text-primary text-lg font-semibold italic mb-8">
-                        "Choose how your customers are served"
-                      </p>
-                      <p className="text-white/80 text-lg leading-relaxed mb-8">
-                        Diseñamos el modelo operativo basado en volumen, complejidad y objetivos de negocio.
-                      </p>
+                      
+                      <div className="space-y-3 mb-8">
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Human-led support for complex cases.</span>
+                        </p>
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>AI-only service available 24/7.</span>
+                        </p>
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Hybrid human + AI model for efficiency.</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {/* Human-Led Support */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Users className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">100% Human</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Para interacciones sensibles, de alto valor o alta complejidad.
-                      </p>
-                    </motion.div>
-
-                    {/* AI-Only */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Bot className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">100% Artificial</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Respuestas instantáneas, disponibilidad 24/7 y cero tiempo de espera.
-                      </p>
-                    </motion.div>
-
-                    {/* Hybrid */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <UserCog className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">Human & Artificial</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        La IA pre-califica y resuelve tareas repetitivas; el humano interviene solo cuando es necesario.
-                      </p>
-                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -253,7 +217,7 @@ export default function AIAgentPage() {
                     <div>
                       <span className="text-white font-semibold">Outcome: </span>
                       <span className="text-white/80">
-                        Resolución más rápida, costos reducidos y experiencia del cliente superior.
+                        faster resolution and lower costs.
                       </span>
                     </div>
                   </div>
@@ -272,46 +236,21 @@ export default function AIAgentPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Adaptive Operations Management
                       </h2>
-                      <p className="text-primary text-lg font-semibold italic mb-8">
-                        "Operational flexibility built for growth"
-                      </p>
-                      <p className="text-white/80 text-lg leading-relaxed mb-8">
-                        Escalabilidad sin fricciones ni procesos de contratación lentos.
-                      </p>
+                      
+                      <div className="space-y-3 mb-8">
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Scalable operations without slow hiring.</span>
+                        </p>
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Our trained experts or your team enhanced by AI.</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    {/* Our Experts */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <HeadphonesIcon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">yoummday Experts</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Especialistas en servicio al cliente, ventas y cobranza listos para operar.
-                      </p>
-                    </motion.div>
-
-                    {/* Your Team */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Building2 className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">Your Experts</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Integramos herramientas de IA en tu equipo actual para potenciar productividad y consistencia.
-                      </p>
-                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -319,7 +258,7 @@ export default function AIAgentPage() {
                     <div>
                       <span className="text-white font-semibold">Outcome: </span>
                       <span className="text-white/80">
-                        Escalabilidad inmediata y eficiencia operativa máxima.
+                        immediate scalability and operational efficiency.
                       </span>
                     </div>
                   </div>
@@ -338,60 +277,21 @@ export default function AIAgentPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                         Connected Technology Ecosystem
                       </h2>
-                      <p className="text-primary text-lg font-semibold italic mb-8">
-                        "Technology that fits your business"
-                      </p>
-                      <p className="text-white/80 text-lg leading-relaxed mb-8">
-                        Integración total sin necesidad de reemplazar tu infraestructura actual.
-                      </p>
+                      
+                      <div className="space-y-3 mb-8">
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>AI-powered contact center platform.</span>
+                        </p>
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Seamless integration with existing business systems.</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {/* Our Platform */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Network className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">yoummday Platform</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Solución de contact center impulsada por IA lista para desplegar.
-                      </p>
-                    </motion.div>
-
-                    {/* Your Software */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Laptop className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">YOUR Software</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Conexión nativa con CRM, telefonía, WhatsApp, Email y ERP.
-                      </p>
-                    </motion.div>
-
-                    {/* Integrated Systems */}
-                    <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-[#0a1628]/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                        <Zap className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-white font-bold text-lg mb-3">Systems combined</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Unificación de todas las herramientas en una sola operación conectada.
-                      </p>
-                    </motion.div>
                   </div>
 
                   <div className="flex items-start gap-3 bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -399,7 +299,7 @@ export default function AIAgentPage() {
                     <div>
                       <span className="text-white font-semibold">Outcome: </span>
                       <span className="text-white/80">
-                        Implementación ágil sin "tecnología aislada" (silos).
+                        fast deployment with no technology silos.
                       </span>
                     </div>
                   </div>
@@ -418,122 +318,18 @@ export default function AIAgentPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                        AI Capabilities & Automation Layer
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                        AI Capabilities & Automation
                       </h2>
-                      <p className="text-primary text-lg font-semibold italic mb-8">
-                        "The Intelligence Engine"
-                      </p>
-                      <p className="text-white/80 text-lg leading-relaxed mb-8">
-                        Una capa transversal de tecnología que optimiza cada punto de contacto.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Operational Automation */}
-                  <div className="mb-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <Zap className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white">Operational Automation</h3>
-                      <Badge className="bg-primary/20 text-primary border-primary/30">Efficiency</Badge>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-3 gap-4 mb-8">
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <MessageSquare className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Smart Responses</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Respuestas contextuales en tiempo real por chat, voz y correo.
-                        </p>
-                      </div>
                       
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <HeadphonesIcon className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">AI Assist for Agents</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Sugerencias y soporte de conocimiento en vivo para el agente humano.
+                      <div className="space-y-3 mb-8">
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Smart automation across voice, chat, and email.</span>
                         </p>
-                      </div>
-                      
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Mic className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Customer Voice Intelligence</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Detección de intención y análisis de sentimiento.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quality & Compliance */}
-                  <div className="mb-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <Shield className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white">Intelligent Quality & Compliance</h3>
-                      <Badge className="bg-primary/20 text-primary border-primary/30">QA</Badge>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-4 mb-8">
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <BarChart3 className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Automated Quality Monitoring</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Análisis del 100% de las interacciones (no solo muestras).
-                        </p>
-                      </div>
-                      
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <MessageSquare className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Language & Tone Optimization</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Auditoría de fluidez y cumplimiento en tiempo real.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Document & Data Intelligence */}
-                  <div className="mb-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white">Document & Data Intelligence</h3>
-                      <Badge className="bg-primary/20 text-primary border-primary/30">Ops Support</Badge>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-4 mb-8">
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <FileText className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Automated Document Processing</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Extracción de datos de facturas, contratos e imágenes.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-[#0a1628]/30 border border-white/5 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Database className="w-5 h-5 text-primary" />
-                          <h4 className="text-white font-semibold">Secure Data Matching</h4>
-                        </div>
-                        <p className="text-white/70 text-sm">
-                          Validación automática contra sistemas internos.
+                        <p className="text-white/80 text-lg leading-relaxed flex items-start gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span>AI assistance, quality monitoring, and document processing.</span>
                         </p>
                       </div>
                     </div>
@@ -544,7 +340,7 @@ export default function AIAgentPage() {
                     <div>
                       <span className="text-white font-semibold">Impact: </span>
                       <span className="text-white/80">
-                        Reducción drástica del trabajo manual y ciclos de resolución acelerados.
+                        reduced manual work and faster resolution cycles.
                       </span>
                     </div>
                   </div>
