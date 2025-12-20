@@ -8,6 +8,7 @@ import {
   CheckCircle2, Rocket, Heart, Shield
 } from "lucide-react";
 import { Link } from "wouter";
+import logoNav from "@assets/generated_images/logo_nav.png";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +37,8 @@ const Nav = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl font-cinzel font-bold tracking-wider text-white relative group cursor-pointer">
-            C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
+          <a className="relative group cursor-pointer flex items-center">
+            <img src={logoNav} alt="C&G Corp" className="h-10 w-auto object-contain" />
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
           </a>
         </Link>
@@ -121,10 +122,12 @@ const AboutUs = () => {
   ];
 
   const milestones = [
-    { year: "2018", title: "Company Founded", desc: "Started with a vision to revolutionize contact center solutions" },
-    { year: "2020", title: "Global Expansion", desc: "Expanded operations to serve clients across 15 countries" },
-    { year: "2022", title: "AI Integration", desc: "Pioneered AI-powered hybrid workforce models" },
-    { year: "2024", title: "Industry Leader", desc: "Recognized as top provider with 500+ enterprise clients" }
+    { year: "01", title: "Customer Focus", desc: "Understanding client goals and adapting our operations to exceed their expectations" },
+    { year: "02", title: "Responsible Results", desc: "Achieving high recovery and sales rates with transparent practices and regulatory compliance" },
+    { year: "03", title: "Operational Quality", desc: "Excellence standards, continuous improvement, and data-driven management" },
+    { year: "04", title: "Customer Experience", desc: "Clear, multichannel, and resolution-oriented communication in all interactions" },
+    { year: "05", title: "Team & Culture", desc: "Development, well-being, and performance of human talent as the engine of success" },
+    { year: "06", title: "Sustainability & Ethics", desc: "Commitment to sustainable practices and social responsibility" }
   ];
 
   const team = [
@@ -188,9 +191,12 @@ const AboutUs = () => {
                     <h2 className="text-3xl font-heading font-bold">Our Mission</h2>
                   </div>
                   <p className="text-white/70 text-lg leading-relaxed">
-                    To empower businesses worldwide with innovative hybrid workforce solutions 
-                    that seamlessly integrate human intelligence and artificial intelligence, 
-                    delivering exceptional customer experiences while optimizing operational efficiency.
+                    The mission of C&G Corp S.A.S. is to be a strategic partner
+                    for our clients, maximizing portfolio recovery,
+                    raising the quality of customer service, and boosting sales
+                    through digital platforms, backed by artificial intelligence
+                    that optimizes processes, improves the experience, and drives
+                    sustainable results with high standards of quality and security.
                   </p>
                 </CardContent>
               </Card>
@@ -211,9 +217,10 @@ const AboutUs = () => {
                     <h2 className="text-3xl font-heading font-bold">Our Vision</h2>
                   </div>
                   <p className="text-white/70 text-lg leading-relaxed">
-                    To be the global leader in hybrid contact center solutions, setting the 
-                    standard for innovation, quality, and customer satisfaction while fostering 
-                    a sustainable and inclusive future for the industry.
+                    To be the leading strategic partner in Latin America for
+                    companies seeking to maximize portfolio recovery, boost sales, 
+                    and enhance the customer experience through high-quality solutions, 
+                    technology, sustained innovation, and an exceptional team.
                   </p>
                 </CardContent>
               </Card>
@@ -276,10 +283,10 @@ const AboutUs = () => {
             className="text-center mb-16"
           >
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/50">
-              Our Journey
+              Core Principles
             </Badge>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Milestones That Define Us
+              Key Mission Principles
             </h2>
           </motion.div>
 

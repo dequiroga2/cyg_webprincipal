@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Menu, X, Shield, FileCheck, Lock, Scale, AlertTriangle, 
-  CheckCircle2, Globe, Book, Award, FileText, Search, ArrowRight
+  Menu, X, Shield, Download, ArrowRight
 } from "lucide-react";
 import { Link } from "wouter";
+import logoNav from "@assets/generated_images/logo_nav.png";
+
+// PDFs
+import dataProtectionPDF from "@assets/regulations/SI-POL-3 POLITICA DE PROTECCIÓN DE DATOS.docx.pdf";
+import globalSecurityPDF from "@assets/regulations/SI-POL-2 POLÍTICA GLOBAL DE SEGURIDAD DE LA INFORMACIÓN PROVEEDORES.docx.pdf";
+import equityPDF from "@assets/regulations/SI-POL-4 POLITICA DE EQUIDAD, DIVERSIDAD E INCLUSIÓN.docx.pdf";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +41,8 @@ const Nav = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl font-cinzel font-bold tracking-wider text-white relative group cursor-pointer">
-            C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
+          <a className="relative group cursor-pointer flex items-center">
+            <img src={logoNav} alt="C&G Corp" className="h-10 w-auto object-contain" />
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
           </a>
         </Link>
@@ -97,166 +102,30 @@ const Regulations = () => {
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const regulations = [
+  const certificates = [
     {
-      icon: <Shield className="w-12 h-12" />,
-      title: "GDPR",
-      fullName: "General Data Protection Regulation",
-      region: "European Union",
-      description: "Comprehensive data protection and privacy regulation for all individuals within the EU",
-      requirements: [
-        "Right to access and erasure",
-        "Data portability",
-        "Privacy by design",
-        "Breach notification within 72 hours"
-      ],
-      ourCompliance: [
-        "End-to-end encryption",
-        "Data anonymization",
-        "Consent management",
-        "Regular compliance audits"
-      ],
-      gradient: "from-blue-500/20 to-indigo-500/20",
-      borderColor: "border-blue-500/30"
+      title: "Data Protection Policy",
+      organization: "C&G CORP",
+      date: "2025",
+      keySkills: ["Data Privacy", "GDPR Compliance"],
+      pdfUrl: dataProtectionPDF,
+      gradient: "from-blue-500/20 to-indigo-500/20"
     },
     {
-      icon: <Lock className="w-12 h-12" />,
-      title: "HIPAA",
-      fullName: "Health Insurance Portability and Accountability Act",
-      region: "United States",
-      description: "Federal law protecting sensitive patient health information from disclosure",
-      requirements: [
-        "Physical safeguards",
-        "Technical safeguards",
-        "Administrative safeguards",
-        "Business associate agreements"
-      ],
-      ourCompliance: [
-        "HIPAA-compliant infrastructure",
-        "Encrypted data transmission",
-        "Access controls and audit logs",
-        "Employee training programs"
-      ],
-      gradient: "from-green-500/20 to-emerald-500/20",
-      borderColor: "border-green-500/30"
+      title: "Global Information Security Policy",
+      organization: "C&G CORP",
+      date: "2025",
+      keySkills: ["Information Security", "Provider Management"],
+      pdfUrl: globalSecurityPDF,
+      gradient: "from-purple-500/20 to-pink-500/20"
     },
     {
-      icon: <FileCheck className="w-12 h-12" />,
-      title: "PCI DSS",
-      fullName: "Payment Card Industry Data Security Standard",
-      region: "Global",
-      description: "Security standards for organizations that handle credit card information",
-      requirements: [
-        "Secure network infrastructure",
-        "Protect cardholder data",
-        "Vulnerability management",
-        "Regular security testing"
-      ],
-      ourCompliance: [
-        "PCI DSS Level 1 certified",
-        "Tokenization of card data",
-        "Quarterly security scans",
-        "Annual compliance validation"
-      ],
-      gradient: "from-purple-500/20 to-pink-500/20",
-      borderColor: "border-purple-500/30"
-    },
-    {
-      icon: <Globe className="w-12 h-12" />,
-      title: "CCPA",
-      fullName: "California Consumer Privacy Act",
-      region: "California, USA",
-      description: "State law enhancing privacy rights and consumer protection for California residents",
-      requirements: [
-        "Consumer data transparency",
-        "Right to deletion",
-        "Opt-out of data sales",
-        "Non-discrimination"
-      ],
-      ourCompliance: [
-        "Privacy policy updates",
-        "Consumer request portal",
-        "Data inventory management",
-        "Third-party vendor audits"
-      ],
-      gradient: "from-orange-500/20 to-red-500/20",
-      borderColor: "border-orange-500/30"
-    },
-    {
-      icon: <Scale className="w-12 h-12" />,
-      title: "SOC 2",
-      fullName: "Service Organization Control 2",
-      region: "United States",
-      description: "Framework for managing customer data based on five trust service principles",
-      requirements: [
-        "Security measures",
-        "Availability monitoring",
-        "Processing integrity",
-        "Confidentiality controls",
-        "Privacy protection"
-      ],
-      ourCompliance: [
-        "SOC 2 Type II certified",
-        "Annual audits",
-        "Continuous monitoring",
-        "Incident response plan"
-      ],
-      gradient: "from-cyan-500/20 to-teal-500/20",
-      borderColor: "border-cyan-500/30"
-    },
-    {
-      icon: <FileText className="w-12 h-12" />,
-      title: "ISO 27001",
-      fullName: "Information Security Management System",
-      region: "International",
-      description: "International standard for information security management systems",
-      requirements: [
-        "Risk assessment",
-        "Security policies",
-        "Asset management",
-        "Access control",
-        "Incident management"
-      ],
-      ourCompliance: [
-        "ISO 27001 certified",
-        "Regular risk assessments",
-        "Documented procedures",
-        "Continuous improvement"
-      ],
-      gradient: "from-indigo-500/20 to-violet-500/20",
-      borderColor: "border-indigo-500/30"
-    }
-  ];
-
-  const certifications = [
-    { name: "ISO 27001", icon: <Award />, status: "Certified" },
-    { name: "SOC 2 Type II", icon: <Shield />, status: "Certified" },
-    { name: "PCI DSS Level 1", icon: <Lock />, status: "Compliant" },
-    { name: "HIPAA", icon: <FileCheck />, status: "Compliant" },
-    { name: "GDPR", icon: <Globe />, status: "Compliant" },
-    { name: "CCPA", icon: <Scale />, status: "Compliant" }
-  ];
-
-  const commitments = [
-    {
-      title: "Continuous Monitoring",
-      description: "24/7 security monitoring and threat detection across all systems",
-      icon: <Search className="w-8 h-8" />
-    },
-    {
-      title: "Regular Audits",
-      description: "Scheduled third-party audits and compliance assessments",
-      icon: <FileCheck className="w-8 h-8" />
-    },
-    {
-      title: "Employee Training",
-      description: "Ongoing security awareness and compliance training programs",
-      icon: <Book className="w-8 h-8" />
-    },
-    {
-      title: "Incident Response",
-      description: "Comprehensive incident response and disaster recovery plans",
-      icon: <AlertTriangle className="w-8 h-8" />
+      title: "Equity, Diversity & Inclusion Policy",
+      organization: "C&G CORP",
+      date: "2025",
+      keySkills: ["Diversity", "Inclusion"],
+      pdfUrl: equityPDF,
+      gradient: "from-green-500/20 to-emerald-500/20"
     }
   ];
 
@@ -294,140 +163,7 @@ const Regulations = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       </motion.section>
 
-      {/* Certifications Grid */}
-      <section className="py-20 px-6 relative">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <Badge className="mb-4 bg-green-500/20 text-green-300 border-green-500/50">
-              Verified & Audited
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Certifications & Compliance
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 h-full">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <div className="text-primary flex-shrink-0">
-                      {cert.icon}
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="font-bold text-lg">{cert.name}</h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        <CheckCircle2 className="w-4 h-4 text-green-500" />
-                        <span className="text-green-500 text-sm font-medium">{cert.status}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Regulations Details */}
-      <section className="py-20 px-6 relative">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Regulatory Framework Compliance
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Deep compliance across global data protection and security standards
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {regulations.map((regulation, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className={`bg-gradient-to-br ${regulation.gradient} ${regulation.borderColor} border backdrop-blur-xl hover:scale-[1.01] transition-all duration-300`}>
-                  <CardContent className="p-8">
-                    <div className="flex flex-col lg:flex-row gap-8">
-                      {/* Header */}
-                      <div className="lg:w-1/3">
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className="text-primary flex-shrink-0">
-                            {regulation.icon}
-                          </div>
-                          <div>
-                            <h3 className="text-3xl font-bold mb-1">{regulation.title}</h3>
-                            <p className="text-white/80 text-sm font-medium">{regulation.fullName}</p>
-                            <Badge className="mt-2 bg-white/10 text-white/80 border-white/20">
-                              {regulation.region}
-                            </Badge>
-                          </div>
-                        </div>
-                        <p className="text-white/70 leading-relaxed">{regulation.description}</p>
-                      </div>
-
-                      {/* Requirements & Compliance */}
-                      <div className="lg:w-2/3 grid md:grid-cols-2 gap-6">
-                        <div className="bg-white/5 rounded-xl p-6 backdrop-blur-sm">
-                          <h4 className="font-bold mb-4 flex items-center gap-2">
-                            <AlertTriangle className="w-5 h-5 text-yellow-500" />
-                            Key Requirements
-                          </h4>
-                          <ul className="space-y-2">
-                            {regulation.requirements.map((req, idx) => (
-                              <li key={idx} className="text-white/70 text-sm flex items-start gap-2">
-                                <span className="text-yellow-500 mt-1">•</span>
-                                {req}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="bg-white/5 rounded-xl p-6 backdrop-blur-sm">
-                          <h4 className="font-bold mb-4 flex items-center gap-2">
-                            <CheckCircle2 className="w-5 h-5 text-green-500" />
-                            Our Compliance
-                          </h4>
-                          <ul className="space-y-2">
-                            {regulation.ourCompliance.map((comp, idx) => (
-                              <li key={idx} className="text-white/70 text-sm flex items-start gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                {comp}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Commitments Section */}
+      {/* Certificates Cards with Flip Effect */}
       <section className="py-20 px-6 relative">
         <div className="container mx-auto">
           <motion.div
@@ -437,32 +173,19 @@ const Regulations = () => {
             className="text-center mb-16"
           >
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/50">
-              Our Commitment
+              Our Policies
             </Badge>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Ongoing Security & Compliance
+              Compliance Documentation
             </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              Access our comprehensive policies and compliance certifications
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {commitments.map((commitment, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 h-full group">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-primary mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                      {commitment.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{commitment.title}</h3>
-                    <p className="text-white/60 leading-relaxed text-sm">{commitment.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {certificates.map((cert, index) => (
+              <FlipCard key={index} certificate={cert} index={index} />
             ))}
           </div>
         </div>
@@ -514,6 +237,93 @@ const Regulations = () => {
         </div>
       </footer>
     </div>
+  );
+};
+
+// Flip Card Component
+const FlipCard = ({ certificate, index }: { certificate: any; index: number }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="perspective-1000 h-[400px]"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full"
+        style={{ transformStyle: "preserve-3d" }}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+      >
+        {/* Front of Card */}
+        <div 
+          className="absolute w-full h-full backface-hidden"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <Card className={`bg-gradient-to-br ${certificate.gradient} border-white/10 backdrop-blur-xl h-full flex flex-col items-center justify-center p-8`}>
+            <CardContent className="p-0 text-center">
+              <div className="w-32 h-32 mx-auto mb-6 relative">
+                <div className="absolute inset-0 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-28 h-28 border-8 border-primary rounded-full flex items-center justify-center">
+                    <Shield className="w-12 h-12 text-primary" />
+                  </div>
+                </div>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#9FD356] flex items-center justify-center">
+                  <span className="text-white text-xs font-bold uppercase">CERTIFIED</span>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2 text-white">
+                {certificate.title}
+              </h3>
+              <p className="text-white/80 font-semibold mb-1">{certificate.organization}</p>
+              <p className="text-white/60">{certificate.date}</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Back of Card */}
+        <div 
+          className="absolute w-full h-full backface-hidden"
+          style={{ 
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)"
+          }}
+        >
+          <Card className="bg-[#1a1a1a] border-white/10 backdrop-blur-xl h-full flex flex-col justify-between p-8">
+            <CardContent className="p-0 flex-grow flex flex-col justify-center">
+              <h3 className="text-xl font-bold mb-6 text-white text-center">Key Skills:</h3>
+              <div className="flex flex-wrap gap-3 justify-center mb-6">
+                {certificate.keySkills.map((skill: string, idx: number) => (
+                  <Badge 
+                    key={idx}
+                    className="bg-[#2a4a3a] text-[#9FD356] border-[#9FD356]/30 px-4 py-2"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+            
+            <div className="flex justify-center">
+              <a 
+                href={certificate.pdfUrl} 
+                download
+                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Certificate
+              </a>
+            </div>
+          </Card>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

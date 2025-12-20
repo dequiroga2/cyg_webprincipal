@@ -29,6 +29,7 @@ import sphereImg from "@assets/generated_images/futuristic_glass_sphere_with_glo
 import hybridVideo from "@assets/Video_Project_1764704898893.mp4";
 import logoIntroVideo from "@assets/generated_images/logo.mp4";
 import logo2Video from "@assets/generated_images/logo2.mp4";
+import logoNav from "@assets/generated_images/logo_nav.png";
 
 // --- Components ---
 
@@ -82,8 +83,8 @@ const Nav = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl font-cinzel font-bold tracking-wider text-white relative group cursor-pointer">
-            C&G <span className="text-primary group-hover:text-white transition-colors duration-300">CORP</span>
+          <a className="relative group cursor-pointer flex items-center">
+            <img src={logoNav} alt="C&G Corp" className="h-10 w-auto object-contain" />
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
           </a>
         </Link>
@@ -239,11 +240,13 @@ const Hero = () => {
             className="flex flex-col items-center"
           >
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-primary/20 rounded-full blur-[60px] animate-pulse pointer-events-none" />
-            <Button size="lg" className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-white px-8 py-3 rounded-full text-base backdrop-blur-sm">
-              <span className="relative z-10 flex items-center gap-2">Book a Demo <Zap size={18} className="group-hover:text-yellow-300 transition-colors"/></span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
-            </Button>
+            <Link href="/contact-us">
+              <Button size="lg" className="relative group overflow-hidden bg-transparent border border-primary/50 hover:border-primary text-white px-8 py-3 rounded-full text-base backdrop-blur-sm">
+                <span className="relative z-10 flex items-center gap-2">Book a Demo <Zap size={18} className="group-hover:text-yellow-300 transition-colors"/></span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-purple-600/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
       )}
@@ -639,8 +642,7 @@ const Footer = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-x-hidden cursor-none">
-      <GlowingCursor />
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-x-hidden">
       <Nav />
       <Hero />
       <ImpactStats />

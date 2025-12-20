@@ -127,3 +127,23 @@ html {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* Flip Card 3D Effect */
+.flip-card-container {
+  perspective: 1000px;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
