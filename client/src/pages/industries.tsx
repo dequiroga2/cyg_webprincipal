@@ -183,10 +183,10 @@ const Industries = () => {
   ];
 
   const stats = [
-    { number: "20+", label: "Industries Served", icon: <Globe /> },
-    { number: "500+", label: "Enterprise Clients", icon: <Building2 /> },
-    { number: "50M+", label: "Interactions Handled", icon: <Users /> },
-    { number: "99.9%", label: "Client Retention", icon: <Target /> }
+    { number: "24/7", label: "Availability", icon: <Globe /> },
+    { number: "Multi-channel", label: "Web, Voice and Chat", icon: <Building2 /> },
+    { number: "Fast Setup", label: "Go live in days, not weeks", icon: <Users /> },
+    { number: "Human + AI", label: "Seamless handoff support", icon: <Target /> }
   ];
 
   return (
