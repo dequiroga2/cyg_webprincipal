@@ -26,6 +26,7 @@ const Nav = () => {
     { name: "Solutions", href: "/solutions" },
     { name: "Industries", href: "/industries" },
     { name: "Regulations", href: "/regulations" },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   return (

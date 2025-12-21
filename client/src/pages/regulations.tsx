@@ -29,6 +29,7 @@ const Nav = () => {
     { name: "Solutions", href: "/solutions" },
     { name: "Industries", href: "/industries" },
     { name: "Regulations", href: "/regulations" },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   return (
@@ -214,9 +215,9 @@ const Regulations = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/contact-us">
-                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full group/button hover:scale-110 transition-all duration-300">
+                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-4 sm:px-10 py-4 sm:py-6 text-sm sm:text-lg rounded-full group/button hover:scale-110 transition-all duration-300 w-full sm:w-auto whitespace-normal sm:whitespace-nowrap">
                         Request Compliance Documentation
-                        <ArrowRight className="ml-2 group-hover/button:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 group-hover/button:translate-x-1 transition-transform flex-shrink-0" />
                       </Button>
                     </Link>
                   </div>
