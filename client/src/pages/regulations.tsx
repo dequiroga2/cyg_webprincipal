@@ -244,6 +244,30 @@ const Regulations = () => {
 // Flip Card Component
 const FlipCard = ({ certificate, index }: { certificate: any; index: number }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Detect if device supports touch
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setIsFlipped(!isFlipped);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      setIsFlipped(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      setIsFlipped(false);
+    }
+  };
 
   return (
     <motion.div
@@ -251,15 +275,20 @@ const FlipCard = ({ certificate, index }: { certificate: any; index: number }) =
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="perspective-1000 h-[400px]"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      className="perspective-1000 h-[400px] cursor-pointer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleInteraction}
+      onTouchStart={(e) => {
+        e.preventDefault();
+        handleInteraction();
+      }}
     >
       <motion.div
         className="relative w-full h-full"
         style={{ transformStyle: "preserve-3d" }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
       >
         {/* Front of Card */}
         <div 
