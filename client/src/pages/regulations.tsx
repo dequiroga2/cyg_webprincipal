@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import logoNav from "@assets/generated_images/logo_nav.png";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // PDFs
 import dataProtectionPDF from "@assets/regulations/SI-POL-3 POLITICA DE PROTECCIÓN DE DATOS.docx.pdf";
@@ -99,9 +100,11 @@ const Nav = () => {
 };
 
 const Regulations = () => {
+  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 500], [0, 150]);
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  // Reducir transformaciones en móvil para mejor rendimiento
+  const heroY = useTransform(scrollY, [0, 500], [0, isMobile ? 50 : 150]);
+  const heroOpacity = useTransform(scrollY, [0, 300], [1, isMobile ? 0.9 : 0]);
 
   const certificates = [
     {
@@ -160,8 +163,9 @@ const Regulations = () => {
           </motion.div>
         </div>
 
-        <div className="absolute top-40 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+        {/* Reducir efectos blur en móviles para mejor rendimiento */}
+        <div className={`absolute top-40 left-10 w-96 h-96 bg-blue-500/10 rounded-full pointer-events-none ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} />
+        <div className={`absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full pointer-events-none ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} />
       </motion.section>
 
       {/* Certificates Cards with Flip Effect */}
@@ -186,7 +190,7 @@ const Regulations = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {certificates.map((cert, index) => (
-              <FlipCard key={index} certificate={cert} index={index} />
+              <FlipCard key={index} certificate={cert} index={index} isMobile={isMobile} />
             ))}
           </div>
         </div>
@@ -201,7 +205,7 @@ const Regulations = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-gradient-to-r from-blue-500/20 via-primary/20 to-[#1f5d6b]/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden group hover:from-blue-500/30 hover:via-primary/30 hover:to-[#1f5d6b]/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+            <Card className={`bg-gradient-to-r from-blue-500/20 via-primary/20 to-[#1f5d6b]/20 border-primary/30 p-12 relative overflow-hidden group hover:from-blue-500/30 hover:via-primary/30 hover:to-[#1f5d6b]/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl'}`}>
               <CardContent className="p-0 relative z-10">
                 <div className="text-center">
                   <Shield className="w-16 h-16 mx-auto mb-6 text-primary group-hover:scale-125 transition-transform duration-300" />
@@ -224,8 +228,8 @@ const Regulations = () => {
                 </div>
               </CardContent>
               
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-blue-500/30 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-colors duration-300" />
+              <div className={`absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full pointer-events-none group-hover:bg-blue-500/30 transition-colors duration-300 ${isMobile ? 'blur-[30px]' : 'blur-[100px]'}`} />
+              <div className={`absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full pointer-events-none group-hover:bg-primary/30 transition-colors duration-300 ${isMobile ? 'blur-[30px]' : 'blur-[100px]'}`} />
             </Card>
           </motion.div>
         </div>
@@ -242,7 +246,7 @@ const Regulations = () => {
 };
 
 // Flip Card Component
-const FlipCard = ({ certificate, index }: { certificate: any; index: number }) => {
+const FlipCard = ({ certificate, index, isMobile }: { certificate: any; index: number; isMobile: boolean }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -251,51 +255,63 @@ const FlipCard = ({ certificate, index }: { certificate: any; index: number }) =
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
-  const handleInteraction = () => {
+  const handleInteraction = useCallback(() => {
     if (isTouchDevice) {
-      setIsFlipped(!isFlipped);
+      setIsFlipped(prev => !prev);
     }
-  };
+  }, [isTouchDevice]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (!isTouchDevice) {
       setIsFlipped(true);
     }
-  };
+  }, [isTouchDevice]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (!isTouchDevice) {
       setIsFlipped(false);
     }
-  };
+  }, [isTouchDevice]);
+
+  // Animación simplificada para móviles
+  const animationConfig = isMobile 
+    ? { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { delay: index * 0.05 } }
+    : { initial: { y: 50, opacity: 0 }, whileInView: { y: 0, opacity: 1 }, transition: { delay: index * 0.1 } };
 
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      {...animationConfig}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="perspective-1000 h-[400px] cursor-pointer"
+      className="h-[400px] cursor-pointer"
+      style={{ perspective: "1000px" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleInteraction}
-      onTouchStart={(e) => {
+      onTouchEnd={(e) => {
         e.preventDefault();
+        e.stopPropagation();
         handleInteraction();
       }}
     >
       <motion.div
         className="relative w-full h-full"
-        style={{ transformStyle: "preserve-3d" }}
+        style={{ 
+          transformStyle: "preserve-3d",
+          WebkitTransformStyle: "preserve-3d"
+        }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        transition={{ duration: isMobile ? 0.4 : 0.6, ease: "easeInOut" }}
       >
         {/* Front of Card */}
         <div 
-          className="absolute w-full h-full backface-hidden"
-          style={{ backfaceVisibility: "hidden" }}
+          className="absolute w-full h-full"
+          style={{ 
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(0deg)"
+          }}
         >
-          <Card className={`bg-gradient-to-br ${certificate.gradient} border-white/10 backdrop-blur-xl h-full flex flex-col items-center justify-center p-8`}>
+          <Card className={`bg-gradient-to-br ${certificate.gradient} border-white/10 h-full flex flex-col items-center justify-center p-8 ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl'}`}>
             <CardContent className="p-0 text-center">
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <div className="absolute inset-0 bg-white rounded-full flex items-center justify-center">
@@ -319,13 +335,14 @@ const FlipCard = ({ certificate, index }: { certificate: any; index: number }) =
 
         {/* Back of Card */}
         <div 
-          className="absolute w-full h-full backface-hidden"
+          className="absolute w-full h-full"
           style={{ 
             backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)"
           }}
         >
-          <Card className="bg-[#1a1a1a] border-white/10 backdrop-blur-xl h-full flex flex-col justify-between p-8">
+          <Card className={`bg-[#1a1a1a] border-white/10 h-full flex flex-col justify-between p-8 ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl'}`}>
             <CardContent className="p-0 flex-grow flex flex-col justify-center">
               <h3 className="text-xl font-bold mb-6 text-white text-center">Key Skills:</h3>
               <div className="flex flex-wrap gap-3 justify-center mb-6">

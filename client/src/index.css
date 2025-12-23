@@ -147,3 +147,47 @@ html {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  /* Reducir blur en móviles para mejor rendimiento */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
+  
+  /* Deshabilitar animaciones complejas en móviles si el usuario prefiere movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Optimizar rendimiento de transformaciones 3D en móvil */
+  .flip-card,
+  .flip-card-front,
+  .flip-card-back {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Reducir intensidad de sombras en móvil */
+  .shadow-2xl {
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+  }
+}
+
+/* Mejorar rendimiento de GPU */
+.will-change-transform {
+  will-change: transform;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

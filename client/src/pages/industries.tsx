@@ -10,10 +10,12 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import logoNav from "@assets/generated_images/logo_nav.png";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -33,7 +35,7 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled 
-          ? "bg-[#0d1f28]/80 backdrop-blur-xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? `bg-[#0d1f28]/80 border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl'}` 
           : "bg-transparent border-transparent py-6"
       }`}
     >
@@ -77,7 +79,7 @@ const Nav = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+          className="absolute top-full left-0 right-0 bg-[#0d1f28]/95 backdrop-blur-sm border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
@@ -96,9 +98,11 @@ const Nav = () => {
 };
 
 const Industries = () => {
+  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 500], [0, 150]);
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  // Reducir transformaciones en móvil para mejor rendimiento
+  const heroY = useTransform(scrollY, [0, 500], [0, isMobile ? 50 : 150]);
+  const heroOpacity = useTransform(scrollY, [0, 300], [1, isMobile ? 0.9 : 0]);
 
   const industries = [
     {
@@ -220,8 +224,8 @@ const Industries = () => {
           </motion.div>
         </div>
 
-        <div className="absolute top-40 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className={`absolute top-40 right-10 w-96 h-96 bg-primary/10 rounded-full pointer-events-none ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} />
+        <div className={`absolute bottom-20 left-10 w-96 h-96 bg-[#1f5d6b]/10 rounded-full pointer-events-none ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} />
       </motion.section>
 
       {/* Stats Section */}
@@ -231,12 +235,12 @@ const Industries = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                initial={isMobile ? { opacity: 0 } : { scale: 0.9, opacity: 0 }}
+                whileInView={isMobile ? { opacity: 1 } : { scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: isMobile ? index * 0.05 : index * 0.1 }}
               >
-                <Card className="bg-white/5 border-white/10 backdrop-blur-xl text-center p-8 hover:bg-white/10 transition-all duration-300">
+                <Card className={`bg-white/5 border-white/10 text-center p-8 hover:bg-white/10 transition-all duration-300 ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl'}`}>
                   <CardContent className="p-0">
                     <div className="text-primary mb-4 flex justify-center">
                       {stat.icon}
@@ -268,16 +272,16 @@ const Industries = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+                initial={isMobile ? { opacity: 0 } : { y: 50, opacity: 0 }}
+                whileInView={isMobile ? { opacity: 1 } : { y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: isMobile ? index * 0.05 : index * 0.1 }}
               >
-                <Card className={`bg-gradient-to-br ${industry.gradient} ${industry.borderColor} border backdrop-blur-xl h-full hover:scale-[1.02] transition-all duration-300 group`}>
+                <Card className={`bg-gradient-to-br ${industry.gradient} ${industry.borderColor} border h-full transition-all duration-300 group ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl hover:scale-[1.02]'}`}>
                   <CardContent className="p-8">
                     <div className="flex items-start gap-6 mb-6">
                       <div className="text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
@@ -341,20 +345,20 @@ const Industries = () => {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
-            <Card className="bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 backdrop-blur-xl p-12 relative overflow-hidden group hover:from-primary/30 hover:via-[#1f5d6b]/30 hover:to-blue-500/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+            <Card className={`bg-gradient-to-r from-primary/20 via-[#1f5d6b]/20 to-blue-500/20 border-primary/30 p-6 sm:p-12 relative overflow-hidden group hover:from-primary/30 hover:via-[#1f5d6b]/30 hover:to-blue-500/30 hover:border-primary/50 transition-all duration-300 ${isMobile ? 'backdrop-blur-sm hover:shadow-lg' : 'backdrop-blur-xl hover:shadow-2xl hover:shadow-primary/20'}`}>
               <CardContent className="p-0 relative z-10">
-                <div className="text-center mb-8">
+                <div className="text-center mb-6 sm:mb-8">
                   <Badge className="mb-4 bg-white/10 text-white border-white/20">
                     Industry Expertise
                   </Badge>
-                  <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 group-hover:scale-105 transition-all duration-300 group-hover:text-primary">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 group-hover:scale-105 transition-all duration-300 group-hover:text-primary px-4 sm:px-0">
                     Why Industry Leaders Choose Us
                   </h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -404,17 +408,17 @@ const Industries = () => {
                   </div>
                 </div>
 
-                <div className="text-center">
+                <div className="text-center px-4 sm:px-0">
                   <Link href="/contact-us">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-full hover:scale-110 transition-all duration-300">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg rounded-full transition-all duration-300 w-full sm:w-auto whitespace-normal sm:whitespace-nowrap hover:scale-110">
                       Discuss Your Industry Needs
                     </Button>
                   </Link>
                 </div>
               </CardContent>
               
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#1f5d6b]/30 transition-colors duration-300" />
+              <div className={`absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full pointer-events-none group-hover:bg-primary/30 transition-colors duration-300 ${isMobile ? 'blur-[30px]' : 'blur-[100px]'}`} />
+              <div className={`absolute bottom-0 left-0 w-64 h-64 bg-[#1f5d6b]/20 rounded-full pointer-events-none group-hover:bg-[#1f5d6b]/30 transition-colors duration-300 ${isMobile ? 'blur-[30px]' : 'blur-[100px]'}`} />
             </Card>
           </motion.div>
         </div>
