@@ -272,7 +272,7 @@ const Industries = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4 md:px-0">
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
@@ -282,18 +282,18 @@ const Industries = () => {
                 transition={{ delay: isMobile ? index * 0.05 : index * 0.1 }}
               >
                 <Card className={`bg-gradient-to-br ${industry.gradient} ${industry.borderColor} border h-full transition-all duration-300 group ${isMobile ? 'backdrop-blur-sm' : 'backdrop-blur-xl hover:scale-[1.02]'}`}>
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className="text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
+                      <div className="text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0 mx-auto sm:mx-0">
                         {industry.icon}
                       </div>
-                      <div>
-                        <h3 className="text-2xl font-bold mb-2">{industry.title}</h3>
-                        <p className="text-white/70 leading-relaxed">{industry.description}</p>
+                      <div className="text-center sm:text-left w-full sm:w-auto">
+                        <h3 className="text-xl sm:text-2xl font-bold mb-2">{industry.title}</h3>
+                        <p className="text-white/70 leading-relaxed text-sm sm:text-base">{industry.description}</p>
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
                       <div>
                         <h4 className="font-bold mb-3 text-white/90 flex items-center gap-2">
                           <span className="w-2 h-2 bg-red-500 rounded-full"></span>
@@ -324,9 +324,9 @@ const Industries = () => {
 
                     <div className="pt-6 border-t border-white/10">
                       <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-3xl font-bold text-primary">{industry.stats.improvement}</div>
-                          <div className="text-white/60 text-sm">{industry.stats.metric}</div>
+                        <div className="text-center sm:text-left">
+                          <div className="text-2xl sm:text-3xl font-bold text-primary">{industry.stats.improvement}</div>
+                          <div className="text-white/60 text-xs sm:text-sm">{industry.stats.metric}</div>
                         </div>                        
                       </div>
                     </div>
