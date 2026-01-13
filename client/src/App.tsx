@@ -11,6 +11,8 @@ import Industries from "@/pages/industries";
 import Regulations from "@/pages/regulations";
 import ContactUs from "@/pages/contact-us";
 import AIAgent from "@/pages/ai-agent";
+import CookiePolicy from "@/pages/cookie-policy";
+import { CookieBanner } from "@/components/cookie-banner";
 import { useEffect } from "react";
 
 function ScrollToTop() {
@@ -35,6 +37,7 @@ function Router() {
         <Route path="/regulations" component={Regulations} />
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/ai-agent" component={AIAgent} />
+        <Route path="/cookie-policy" component={CookiePolicy} />
         <Route component={NotFound} />
       </Switch>
     </>
@@ -46,6 +49,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <CookieBanner />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>
